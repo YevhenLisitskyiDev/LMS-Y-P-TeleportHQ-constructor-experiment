@@ -15,13 +15,12 @@ const Timer: React.FC<TimerProps> = ({ label }) => {
   return (
     <div>
       {label}: {timer}
-      ddddddd
     </div>
   );
 };
 
 Timer.defaultProps = {
-  label: "Timer ",
+  label: "Timer "
 };
 
 Timer.propTypes = {

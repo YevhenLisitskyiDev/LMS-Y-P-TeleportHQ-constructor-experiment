@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+}
+.form {
+  width: 313px;
+  height: 134px;
+}
+.textinput {
+  width: 100%;
+  height: 41px;
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.textinput1 {
+  width: 100%;
+  height: 36px;
+  margin-bottom: var(--dl-space-space-halfunit);
+}
+.button {
+  color: var(--dl-color-gray-white);
+  background-color: var(--dl-color-success-700);
+}
