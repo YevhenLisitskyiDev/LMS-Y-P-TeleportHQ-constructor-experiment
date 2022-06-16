@@ -1,4 +1,5 @@
 import React from 'react'
+import LoginForm from '../../widgets/LoginForm'
 
 import { Helmet } from 'react-helmet'
 
@@ -8,14 +9,13 @@ const Home = (props) => {
   return (
     <div className={styles['container']}>
       <Helmet>
-        <title>Every Gracious Worm</title>
-        <meta property="og:title" content="Every Gracious Worm" />
+        <title>LMS-V2</title>
+        <meta property="og:title" content="LMS-V2" />
       </Helmet>
-      <h1>Home page</h1>
-      <div>Place holder for widget test</div>
-      <div>Place holder for widget test</div>
-      <div>Place holder for widget test</div>
-      <div>Place holder for widget test</div>
+      <h1>Hello</h1>
+      <div className={styles['container1']}>
+        <LoginForm></LoginForm>
+      </div>
     </div>
   )
 }

@@ -1,11 +1,14 @@
 import React from "react";
 import Test from "../widgets/test";
-const Login = () => {
+import LoginForm from "./../widgets/LoginForm.tsx"
+
+const CustomLogin = () => {
   return (
     <div>
       Login
       <Test />
+      <LoginForm />
     </div>
   );
 };
-export default Login;
+export default CustomLogin;
