@@ -1,7 +1,7 @@
 const config = {
-  REACT_APP_SUPABASE_URL: "https://wchctogongeqwpfcyivw.supabase.co",
+  REACT_APP_SUPABASE_URL: "https://wjtvjpdkngnplqzxhmgr.supabase.co",
   REACT_APP_SUPABASE_PUBLIC_KEY:
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndjaGN0b2dvbmdlcXdwZmN5aXZ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTQ1NDQxOTcsImV4cCI6MTk3MDEyMDE5N30.c5zL7vX0mZJVkVeWVBXWfP1ErauVgV2spruaktUF10M",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndqdHZqcGRrbmducGxxenhobWdyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTU0Njc5NDksImV4cCI6MTk3MTA0Mzk0OX0.iXql2QS79lMncW99Q65Fu0a8gnZh2bHUDh4CLoe1vZ4",
 };
 
 export default config
