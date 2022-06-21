@@ -15,6 +15,7 @@ import store from "./store/index.ts";
 
 const App = () => {
   const user = store.user.hook();
+  const isAdmin = store.isAdmin.hook()
  
 
   return (
@@ -31,7 +32,7 @@ const App = () => {
         <Link to="/">HOME</Link>&nbsp;|&nbsp;
         {user ? (
           <>
-          {user.is_admin ? 
+          {isAdmin ? 
             <><Link to="/admin">ADMIN</Link>&nbsp;|&nbsp;</> : ''
           }
             <span onClick={store.auth.signOut}>LOG OUT</span>

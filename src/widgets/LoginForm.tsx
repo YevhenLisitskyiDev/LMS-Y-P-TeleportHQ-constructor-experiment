@@ -12,7 +12,6 @@ const LoginForm = () => {
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault(); 
     const [email, password] = e.currentTarget.querySelectorAll("input");
-    console.log(email.value, password.value);
 
     store.auth.signIn({ email: email.value, password: password.value });
   };

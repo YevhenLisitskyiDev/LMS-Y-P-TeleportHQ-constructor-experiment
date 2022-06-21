@@ -9,9 +9,8 @@ interface AdminRouteProps {
 }
 
 const AdminRoute: FC<AdminRouteProps> = (props) => {
-  const user = store.user.hook();
-  const isAdmin = user?.is_admin
-  
+  const isAdmin = store.isAdmin.hook();
+
   return isAdmin ? <Route {...props} /> : <Redirect to="/login" />;
 };
 

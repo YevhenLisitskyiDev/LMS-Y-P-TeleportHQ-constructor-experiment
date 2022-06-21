@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import { Subject } from "subjecto";
 import supabase from "../services/supabase";
 import demo from "./demo";
-import setCurrentUserData from "./../services/setCurrentUserData";
+import setUserData from "./../services/setUserData";
+import isAdminCheck from "./../services/isAdminCheck"
+
 // define hook function
 Subject.prototype.hook = function () {
   const [value, setValue] = useState(this.value);
@@ -18,7 +20,7 @@ const store = {
       // console.log(res.user, res.session, res.error);
       if (!res.error) {
         store.auth.session.next(res.session);
-        setCurrentUserData();
+        setUserData("signUp");
         return true;
       }
       return false;
@@ -28,7 +30,7 @@ const store = {
       // console.log(res.user, res.session, res.error);
       if (!res.error) {
         store.auth.session.next(res.session);
-        setCurrentUserData();
+        setUserData("login");
         return true;
       }
 
@@ -43,6 +45,7 @@ const store = {
     },
   },
   user: new Subject<any>(null),
+  isAdmin: new Subject<boolean>(false),
   test: new Subject<number>(0),
   demo,
 };
