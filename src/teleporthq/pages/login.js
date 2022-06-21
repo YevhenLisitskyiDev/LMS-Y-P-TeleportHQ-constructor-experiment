@@ -1,5 +1,6 @@
 import React from 'react'
 import LoginForm from '../../widgets/LoginForm'
+import ShowAuthState from '../../widgets/ShowAuthState'
 
 import { Helmet } from 'react-helmet'
 
@@ -13,6 +14,7 @@ const Login = (props) => {
         <meta property="og:title" content="Login - LMS-V2" />
       </Helmet>
       <LoginForm></LoginForm>
+      <ShowAuthState></ShowAuthState>
     </div>
   )
 }

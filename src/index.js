@@ -1,16 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import PrivateRoute from "./components/PrivateRoute"
+import AdminRoute from "./components/AdminRoute"
 import "./teleporthq/style.module.css";
 import Login from "./teleporthq/pages/login";
 
-import CustomLogin from "./pages/login.tsx";
-import SignUp from "./pages/signup";
-import Home from "./pages/home";
-import HomeDesign from "./teleporthq/pages/home";
+import SignUp from "./teleporthq/pages/sign-up";
+import Admin from "./teleporthq/pages/admin";
+// import Home from "./pages/home";
+import Home from "./teleporthq/pages/home";
+
+import store from "./store/index.ts";
 
 const App = () => {
+  const user = store.user.hook();
+ 
+
   return (
     <Router>
       <nav
@@ -23,17 +29,28 @@ const App = () => {
         }}
       >
         <Link to="/">HOME</Link>&nbsp;|&nbsp;
-        <Link to="/custom-login">Custom LOGIN</Link>&nbsp;|&nbsp;
-        <Link to="/login">LOGIN</Link>&nbsp;|&nbsp;
-        <Link to="/signup">SIGN UP</Link>&nbsp;|&nbsp;
-        <Link to="/home-design">HOME DESIGN</Link>
+        {user ? (
+          <>
+          {user.is_admin ? 
+            <><Link to="/admin">ADMIN</Link>&nbsp;|&nbsp;</> : ''
+          }
+            <span onClick={store.auth.signOut}>LOG OUT</span>
+          </>
+        ) : (
+          <>
+            {" "}
+            <Link to="/login">LOGIN</Link>&nbsp;|&nbsp;
+            <Link to="/signup">SIGN UP</Link>
+          </>
+        )}
       </nav>
+
       <Route exact component={Home} path="/" />
       <Route exact component={SignUp} path="/signup" />
       <Route exact component={Login} path="/login" />
-      <Route exact component={CustomLogin} path="/custom-login" />
-
-      <Route exact component={HomeDesign} path="/home-design" />
+      // <PrivateRoute exact component={Admin} path="/admin"/>
+      <AdminRoute exact component={Admin} path="/admin"/>
+      
     </Router>
   );
 };

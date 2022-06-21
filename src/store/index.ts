@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Subject } from "subjecto";
 import supabase from "../services/supabase";
-
+import demo from "./demo";
+import setCurrentUserData from "./../services/setCurrentUserData";
 // define hook function
 Subject.prototype.hook = function () {
   const [value, setValue] = useState(this.value);
@@ -10,24 +11,44 @@ Subject.prototype.hook = function () {
 };
 
 const store = {
-  user: {
-    isLogged: new Subject(false),
+  auth: {
     session: new Subject<any>(supabase.auth.session()),
-    signUp: (data: any) => supabase.auth.signUp(data),
+    signUp: async (data: { email: string; password: string }) => {
+      const res = await supabase.auth.signUp(data);
+      // console.log(res.user, res.session, res.error);
+      if (!res.error) {
+        store.auth.session.next(res.session);
+        setCurrentUserData();
+        return true;
+      }
+      return false;
+    },
     signIn: async (data: { email: string; password: string }) => {
       const res = await supabase.auth.signIn(data);
-      console.log(res.user, res.session, res.error);
+      // console.log(res.user, res.session, res.error);
       if (!res.error) {
-        store.user.session.next(res.session);
+        store.auth.session.next(res.session);
+        setCurrentUserData();
+        return true;
+      }
+
+      return false;
+    },
+    signOut: async () => {
+      const { error } = await supabase.auth.signOut();
+
+      if (!error) {
+        store.user.next(null);
       }
     },
-    signOut: () => supabase.auth.signOut(),
   },
+  user: new Subject<any>(null),
   test: new Subject<number>(0),
+  demo,
 };
 
 supabase.auth.onAuthStateChange(async (event, session) => {
-  store.user.session.next(session);
+  store.auth.session.next(session);
   console.log(event, session);
 });
 

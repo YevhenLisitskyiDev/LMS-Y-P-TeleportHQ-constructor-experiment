@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginForm from '../../widgets/LoginForm'
+import ShowAuthState from '../../widgets/ShowAuthState'
 
 import { Helmet } from 'react-helmet'
 
@@ -13,9 +13,7 @@ const Home = (props) => {
         <meta property="og:title" content="LMS-V2" />
       </Helmet>
       <h1>Hello</h1>
-      <div className={styles['container1']}>
-        <LoginForm></LoginForm>
-      </div>
+      <ShowAuthState></ShowAuthState>
     </div>
   )
 }

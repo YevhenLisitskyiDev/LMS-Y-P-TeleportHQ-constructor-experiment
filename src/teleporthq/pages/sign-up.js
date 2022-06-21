@@ -1,4 +1,5 @@
 import React from 'react'
+import SignUpForm from '../../widgets/SignUpForm'
 
 import { Helmet } from 'react-helmet'
 
@@ -11,6 +12,7 @@ const SignUp = (props) => {
         <title>SignUp - LMS-V2</title>
         <meta property="og:title" content="SignUp - LMS-V2" />
       </Helmet>
+      <SignUpForm></SignUpForm>
     </div>
   )
 }
