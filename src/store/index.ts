@@ -54,7 +54,6 @@ const store = {
 
 supabase.auth.onAuthStateChange(async (event, session) => {
   store.auth.session.next(session);
-  console.log("session state changed")
 });
 
 export default store;
