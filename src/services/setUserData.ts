@@ -9,7 +9,7 @@ const setUserData = async () => {
 let { data: users, error } = await supabase
     .from("users")
     .select("*")
-    .eq("id", store.auth.session.value.user.id)
+    .eq("email", store.auth.session.value.user.email)
     .eq("organization_id", config.ORGANIZATION_ID);
   // console.log("users", users);
   // console.log("session", store.auth.session.value.user.id);
