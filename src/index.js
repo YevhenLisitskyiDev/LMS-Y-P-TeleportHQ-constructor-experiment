@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import PrivateRoute from "./components/PrivateRoute"
-import AdminRoute from "./components/AdminRoute"
+import AdminRoute from "./components/AdminRoute";
+import PrivateRoute from "./components/PrivateRoute";
 import "./teleporthq/style.module.css";
+import setUserData from "./services/setUserData";
 import Login from "./teleporthq/pages/login";
 
 import SignUp from "./teleporthq/pages/sign-up";
+import PrivatePage from "./teleporthq/pages/private-page";
 import Admin from "./teleporthq/pages/admin";
 // import Home from "./pages/home";
 import Home from "./teleporthq/pages/home";
@@ -15,8 +17,11 @@ import store from "./store/index.ts";
 
 const App = () => {
   const user = store.user.hook();
-  const isAdmin = store.isAdmin.hook()
- 
+  const isAdmin = store.isAdmin.hook();
+
+  useEffect(() => {
+    if (store.auth.session.value) setUserData();
+  }, []);
 
   return (
     <Router>
@@ -32,26 +37,29 @@ const App = () => {
         <Link to="/">HOME</Link>&nbsp;|&nbsp;
         {user ? (
           <>
-          {isAdmin ? 
-            <><Link to="/admin">ADMIN</Link>&nbsp;|&nbsp;</> : ''
-          }
+            {isAdmin ? (
+              <>
+                <Link to="/admin">ADMIN</Link>&nbsp;|&nbsp;
+              </>
+            ) : (
+              ""
+            )}
+            <Link to="/private">PRIVATE PAGE</Link>&nbsp;|&nbsp;
             <span onClick={store.auth.signOut}>LOG OUT</span>
           </>
         ) : (
           <>
             {" "}
-            <Link to="/login">LOGIN</Link>&nbsp;|&nbsp;
+            <Link to="/login"> SIGN IN</Link>&nbsp;|&nbsp;
             <Link to="/signup">SIGN UP</Link>
           </>
         )}
       </nav>
-
       <Route exact component={Home} path="/" />
       <Route exact component={SignUp} path="/signup" />
       <Route exact component={Login} path="/login" />
-      // <PrivateRoute exact component={Admin} path="/admin"/>
-      <AdminRoute exact component={Admin} path="/admin"/>
-      
+      <AdminRoute exact component={Admin} path="/admin" />
+      <PrivateRoute exact component={PrivatePage} path="/private" />
     </Router>
   );
 };

@@ -5,13 +5,13 @@ import store from "./../store";
 interface AdminRouteProps {
   path: string;
   component: JSX.Element;
-  exact?: boolean;
+  exact: boolean;
 }
 
 const AdminRoute: FC<AdminRouteProps> = (props) => {
   const isAdmin = store.isAdmin.hook();
 
-  return isAdmin ? <Route {...props} /> : <Redirect to="/login" />;
+  return isAdmin ? <Route {...props} /> : <Redirect to="/" />;
 };
 
 export default AdminRoute;

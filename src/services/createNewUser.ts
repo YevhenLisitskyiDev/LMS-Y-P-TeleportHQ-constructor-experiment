@@ -3,7 +3,6 @@ import store from "./../store";
 import config from "./../config";
 
 const createNewUser = async () => {
-  console.log("session", store.auth.session.value);
 
   const { data, error } = await supabase
     .from("users")
@@ -13,7 +12,7 @@ const createNewUser = async () => {
         organization_id: config.ORGANIZATION_ID,
       },
     ]);
-//   console.log("data",data, "error", error);
+    console.log(data, error)
     if(!error && data) store.user.next(data[0])
 };
 

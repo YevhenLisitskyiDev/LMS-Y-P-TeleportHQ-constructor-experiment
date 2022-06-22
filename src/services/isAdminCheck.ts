@@ -8,11 +8,11 @@ const isAdminCheck = async () => {
   let { data: admins, error } = await supabase
     .from("admins")
     .select("*")
-    .eq("id", store.user.value.id)
-    .eq("organization_id", config.ORGANIZATION_ID);
+    .eq("id", store.auth.session.value.user.id)
 
-  // console.log(store.user.value)
-  if (!error && admins) store.isAdmin.toggle();
+    // console.log("admins", admins)
+    
+  if (!error && !store.isAdmin.value && admins.length) store.isAdmin.toggle();
 };
 
 export default isAdminCheck;

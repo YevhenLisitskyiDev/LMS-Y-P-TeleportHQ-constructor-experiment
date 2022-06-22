@@ -3,7 +3,9 @@ import { Subject } from "subjecto";
 import supabase from "../services/supabase";
 import demo from "./demo";
 import setUserData from "./../services/setUserData";
+import createNewUser from "./../services/createNewUser"
 import isAdminCheck from "./../services/isAdminCheck"
+import config from "./../config"
 
 // define hook function
 Subject.prototype.hook = function () {
@@ -17,20 +19,20 @@ const store = {
     session: new Subject<any>(supabase.auth.session()),
     signUp: async (data: { email: string; password: string }) => {
       const res = await supabase.auth.signUp(data);
-      // console.log(res.user, res.session, res.error);
+    //   console.log(res.user, res.session, res.error);
       if (!res.error) {
         store.auth.session.next(res.session);
-        setUserData("signUp");
+        createNewUser()
         return true;
       }
       return false;
     },
     signIn: async (data: { email: string; password: string }) => {
       const res = await supabase.auth.signIn(data);
-      // console.log(res.user, res.session, res.error);
+    //   console.log(res.user, res.session, res.error);
       if (!res.error) {
         store.auth.session.next(res.session);
-        setUserData("login");
+        setUserData();
         return true;
       }
 
@@ -52,7 +54,7 @@ const store = {
 
 supabase.auth.onAuthStateChange(async (event, session) => {
   store.auth.session.next(session);
-  console.log(event, session);
+  console.log("session state changed")
 });
 
 export default store;

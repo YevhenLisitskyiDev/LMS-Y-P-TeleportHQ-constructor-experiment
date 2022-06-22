@@ -1,5 +1,5 @@
 import React from 'react'
-import ShowAuthState from '../../widgets/ShowAuthState'
+import ToEditorButton from '../../widgets/ToEditorButton'
 
 import { Helmet } from 'react-helmet'
 
@@ -12,8 +12,8 @@ const Home = (props) => {
         <title>LMS-V2</title>
         <meta property="og:title" content="LMS-V2" />
       </Helmet>
-      <h1>Hello</h1>
-      <ShowAuthState></ShowAuthState>
+      <h1>Home Route</h1>
+      <ToEditorButton></ToEditorButton>
     </div>
   )
 }

@@ -11,6 +11,7 @@ const Admin = (props) => {
         <title>Admin - LMS-V2</title>
         <meta property="og:title" content="Admin - LMS-V2" />
       </Helmet>
+      <h1>Admin Route</h1>
     </div>
   )
 }

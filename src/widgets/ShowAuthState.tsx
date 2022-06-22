@@ -1,17 +1,15 @@
 import React from "react";
 import store from "../store";
+import setUserData from "./../services/setUserData";
 
 const ShowAuthState = () => {
-  
-
   return (
     <div
       onClick={() => {
-        console.log(store.auth.session.value)
-        console.log(store.user.value)
+        setUserData("login");
       }}
     >
-      Hit me 
+      Hit me
     </div>
   );
 };
