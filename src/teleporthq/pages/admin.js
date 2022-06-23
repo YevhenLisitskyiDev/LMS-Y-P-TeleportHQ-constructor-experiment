@@ -1,4 +1,5 @@
 import React from 'react'
+import GetUsersbutton from '../../widgets/GetUsersbutton'
 
 import { Helmet } from 'react-helmet'
 
@@ -12,6 +13,7 @@ const Admin = (props) => {
         <meta property="og:title" content="Admin - LMS-V2" />
       </Helmet>
       <h1>Admin Route</h1>
+      <GetUsersbutton></GetUsersbutton>
     </div>
   )
 }

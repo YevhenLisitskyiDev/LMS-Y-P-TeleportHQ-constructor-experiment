@@ -43,6 +43,7 @@ const store = {
 
       if (!error) {
         store.user.next(null);
+        store.isAdmin.toggle();
       }
     },
   },

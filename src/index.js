@@ -58,8 +58,12 @@ const App = () => {
       <Route exact component={Home} path="/" />
       <Route exact component={SignUp} path="/signup" />
       <Route exact component={Login} path="/login" />
-      <AdminRoute exact component={Admin} path="/admin" />
-      <PrivateRoute exact component={PrivatePage} path="/private" />
+      {isAdmin ? <AdminRoute exact component={Admin} path="/admin" /> : ""}
+      {user ? (
+        <PrivateRoute exact component={PrivatePage} path="/private" />
+      ) : (
+        ""
+      )}
     </Router>
   );
 };
