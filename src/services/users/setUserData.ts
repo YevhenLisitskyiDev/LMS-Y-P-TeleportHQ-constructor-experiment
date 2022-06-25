@@ -1,8 +1,8 @@
 import supabase from "../supabase";
 import store from "../../store";
 import config from "../../config";
-import createNewUser from "../auth/createNewUser";
-import isAdminCheck from "../auth/isAdminCheck";
+import createNewUser from "../users/createNewUser";
+import isAdminCheck from "../admin/isAdminCheck";
 
 const setUserData = async () => {
 

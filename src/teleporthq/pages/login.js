@@ -1,6 +1,6 @@
 import React from 'react'
-import LoginForm from '../../widgets/LoginForm'
-import ShowAuthState from '../../widgets/ShowAuthState'
+import LoginForm from '../../widgets/auth/LoginForm'
+import ShowAuthState from '../../widgets/auth/ShowAuthState'
 
 import { Helmet } from 'react-helmet'
 

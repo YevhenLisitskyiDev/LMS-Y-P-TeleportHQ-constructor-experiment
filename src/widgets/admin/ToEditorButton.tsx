@@ -10,7 +10,7 @@ const ToEditorButton = () => {
         <a
           href="https://play.teleporthq.io/projects/every-gracious-worm-gqn6ak/editor/5c42ea00-acfc-4432-949a-b81cdb961c17"
           style={{
-            position: "absolute",
+            position: "fixed",
             bottom: "50px",
             right: "50px",
             background: "blue",

@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { Subject } from "subjecto";
 import supabase from "../services/supabase";
-import demo from "./demo";
 import setUserData from "../services/users/setUserData";
-import createNewUser from "../services/auth/createNewUser"
-import isAdminCheck from "../services/auth/isAdminCheck"
+import createNewUser from "../services/users/createNewUser"
+
 import config from "./../config"
 
 // define hook function
@@ -49,8 +48,8 @@ const store = {
   },
   user: new Subject<any>(null),
   isAdmin: new Subject<boolean>(false),
-  test: new Subject<number>(0),
-  demo,
+  courses: new Subject<any>(null),
+  error: new Subject<any>(null),
 };
 
 supabase.auth.onAuthStateChange(async (event, session) => {

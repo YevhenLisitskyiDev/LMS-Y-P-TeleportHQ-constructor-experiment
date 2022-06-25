@@ -46,6 +46,7 @@
 .input {
   color: var(--dl-color-gray-black);
   cursor: auto;
+  display: block;
   padding: 0.5rem 1rem;
   border-color: var(--dl-color-gray-black);
   border-width: 1px;

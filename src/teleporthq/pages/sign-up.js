@@ -1,5 +1,5 @@
 import React from 'react'
-import SignUpForm from '../../widgets/SignUpForm'
+import SignUpForm from '../../widgets/auth/SignUpForm'
 
 import { Helmet } from 'react-helmet'
 

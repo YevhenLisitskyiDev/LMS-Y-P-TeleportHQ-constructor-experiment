@@ -1,8 +1,9 @@
 import React from 'react'
-import GetUsersbutton from '../../widgets/GetUsersbutton'
+import GetUsersbutton from '../../widgets/users/GetUsersbutton'
 
 import { Helmet } from 'react-helmet'
 
+import Form1 from '../components/form1'
 import styles from './admin.module.css'
 
 const Admin = (props) => {
@@ -14,6 +15,7 @@ const Admin = (props) => {
       </Helmet>
       <h1>Admin Route</h1>
       <GetUsersbutton></GetUsersbutton>
+      <Form1></Form1>
     </div>
   )
 }

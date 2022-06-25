@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import AdminRoute from "./components/AdminRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import "./teleporthq/style.module.css";
-import setUserData from "./services/setUserData";
+import setUserData from "./services/users/setUserData";
 import Login from "./teleporthq/pages/login";
 
 import SignUp from "./teleporthq/pages/sign-up";
