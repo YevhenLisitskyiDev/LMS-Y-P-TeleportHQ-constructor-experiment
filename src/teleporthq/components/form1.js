@@ -2,32 +2,28 @@ import React from 'react'
 
 import PropTypes from 'prop-types'
 
-import projectStyles from '../style.module.css'
-import styles from './form1.module.css'
+import './form1.css'
 
 const Form1 = (props) => {
   return (
-    <div className={styles['container']}>
-      <form className={styles['form']}>
+    <div className="form1-container">
+      <form className="form1-form">
         <input
           type="text"
           placeholder={props.courseNamePlaceholder}
-          className={` ${styles['textinput']} ${projectStyles['input']} `}
+          className="form1-textinput input"
         />
         <textarea
           placeholder={props.courseDescriptionPlaceholder}
-          className={` ${styles['textarea']} ${projectStyles['textarea']} `}
+          className="form1-textarea textarea"
         ></textarea>
         <input
           type="text"
           placeholder={props.authorNamePlaceholder}
           onSubmit={props.submitHandler}
-          className={` ${styles['textinput1']} ${projectStyles['input']} `}
+          className="form1-textinput1 input"
         />
-        <button
-          type="submit"
-          className={` ${styles['button']} ${projectStyles['button']} `}
-        >
+        <button type="submit" className="form1-button button">
           {props.submitButtonText}
         </button>
       </form>

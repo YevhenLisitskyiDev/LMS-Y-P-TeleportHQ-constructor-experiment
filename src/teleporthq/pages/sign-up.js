@@ -3,11 +3,11 @@ import SignUpForm from '../../widgets/auth/SignUpForm'
 
 import { Helmet } from 'react-helmet'
 
-import styles from './sign-up.module.css'
+import './sign-up.css'
 
 const SignUp = (props) => {
   return (
-    <div className={styles['container']}>
+    <div className="sign-up-container">
       <Helmet>
         <title>SignUp - LMS-V2</title>
         <meta property="og:title" content="SignUp - LMS-V2" />

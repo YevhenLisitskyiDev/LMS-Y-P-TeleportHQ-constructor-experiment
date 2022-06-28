@@ -4,11 +4,11 @@ import ShowAuthState from '../../widgets/auth/ShowAuthState'
 
 import { Helmet } from 'react-helmet'
 
-import styles from './login.module.css'
+import './login.css'
 
 const Login = (props) => {
   return (
-    <div className={styles['container']}>
+    <div className="login-container">
       <Helmet>
         <title>Login - LMS-V2</title>
         <meta property="og:title" content="Login - LMS-V2" />

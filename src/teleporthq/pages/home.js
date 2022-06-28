@@ -1,22 +1,21 @@
 import React from 'react'
+import CoursesList from '../../widgets/courses/CoursesList'
 import ToEditorButton from '../../widgets/admin/ToEditorButton'
 
 import { Helmet } from 'react-helmet'
 
-import BlogPostCard from '../components/blog-post-card'
-import projectStyles from '../style.module.css'
-import styles from './home.module.css'
+import './home.css'
 
 const Home = (props) => {
   return (
-    <div className={styles['container']}>
+    <div className="home-container">
       <Helmet>
         <title>LMS-V2</title>
         <meta property="og:title" content="LMS-V2" />
       </Helmet>
-      <div className={styles['hero']}>
-        <h1 className={styles['text']}>Let&apos;s keep things organized</h1>
-        <span className={styles['text01']}>
+      <div className="home-hero">
+        <h1 className="home-text">Let&apos;s keep things organized</h1>
+        <span className="home-text01">
           <span>
             <span>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
@@ -54,51 +53,23 @@ const Home = (props) => {
             </span>
           </span>
         </span>
-        <div className={styles['btn-group']}>
-          <button
-            className={` ${styles['button']} ${projectStyles['button']} `}
-          >
-            Get Started
-          </button>
-          <button
-            className={` ${styles['button1']} ${projectStyles['button']} `}
-          >
-            Learn More
-          </button>
+        <div className="home-btn-group">
+          <button className="home-button button">Get Started</button>
+          <button className="home-button1 button">Learn More</button>
         </div>
       </div>
-      <div className={styles['features']}>
-        <h1 className={styles['text08']}>
+      <div className="home-features">
+        <h1 className="home-text08">
           <span>Discover our unique courses</span>
         </h1>
-        <div className={styles['blog']}>
-          <div className={styles['container1']}>
-            <BlogPostCard
-              time=" "
-              description="  "
-              rootClassName="rootClassName3"
-            ></BlogPostCard>
-          </div>
-          <div className={styles['container2']}>
-            <BlogPostCard
-              rootClassName="rootClassName2"
-              image_url="https://images.unsplash.com/photo-1465925508512-1e7052bb62e6?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDIzfHxjaXR5JTIwY2FifGVufDB8fHx8MTYyNjQ1MDMwNA&amp;ixlib=rb-1.2.1&amp;h=1200"
-            ></BlogPostCard>
-          </div>
-          <div className={styles['container3']}>
-            <BlogPostCard
-              rootClassName="rootClassName1"
-              image_url="https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDE4fHxjaXR5fGVufDB8fHx8MTYyNjQ1MDI4MQ&amp;ixlib=rb-1.2.1&amp;h=1200"
-            ></BlogPostCard>
-          </div>
-        </div>
+        <CoursesList></CoursesList>
       </div>
-      <div className={styles['banner']}>
-        <span className={styles['text10']}>
-          <span className={styles['text11']}>Lorem ipsum dolor sit amet</span>
+      <div className="home-banner">
+        <span className="home-text10">
+          <span className="home-text11">Lorem ipsum dolor sit amet</span>
         </span>
-        <h1 className={styles['text12']}>Learn to keep it simple</h1>
-        <span className={styles['text13']}>
+        <h1 className="home-text12">Learn to keep it simple</h1>
+        <span className="home-text13">
           <span>
             <span>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
@@ -135,20 +106,21 @@ const Home = (props) => {
             </span>
           </span>
         </span>
-        <div className={styles['container4']}>
+        <div className="home-container1">
           <input
             type="text"
             placeholder="Email here..."
-            className={` ${styles['textinput']} ${projectStyles['input']} `}
+            className="home-textinput input"
           />
-          <button
-            className={` ${styles['button2']} ${projectStyles['button']} `}
-          >
-            Subscribe
-          </button>
+          <button className="home-button2 button">Subscribe</button>
         </div>
       </div>
       <ToEditorButton></ToEditorButton>
+      <div className="home-blog">
+        <div className="home-container2"></div>
+        <div className="home-container3"></div>
+        <div className="home-container4"></div>
+      </div>
     </div>
   )
 }

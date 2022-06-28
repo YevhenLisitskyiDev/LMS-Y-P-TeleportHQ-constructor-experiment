@@ -4,11 +4,11 @@ import GetUsersbutton from '../../widgets/users/GetUsersbutton'
 import { Helmet } from 'react-helmet'
 
 import Form1 from '../components/form1'
-import styles from './admin.module.css'
+import './admin.css'
 
 const Admin = (props) => {
   return (
-    <div className={styles['container']}>
+    <div className="admin-container">
       <Helmet>
         <title>Admin - LMS-V2</title>
         <meta property="og:title" content="Admin - LMS-V2" />

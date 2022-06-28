@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import AdminRoute from "./components/AdminRoute";
 import PrivateRoute from "./components/PrivateRoute";
-import "./teleporthq/style.module.css";
+import "./teleporthq/style.css";
 import setUserData from "./services/users/setUserData";
 import Login from "./teleporthq/pages/login";
 
@@ -12,6 +12,7 @@ import PrivatePage from "./teleporthq/pages/private-page";
 import Admin from "./teleporthq/pages/admin";
 // import Home from "./pages/home";
 import Home from "./teleporthq/pages/home";
+import Course from './teleporthq/pages/course.js'
 
 import store from "./store/index.ts";
 
@@ -56,6 +57,7 @@ const App = () => {
         )}
       </nav>
       <Route exact component={Home} path="/" />
+      <Route exact component={Course} path="/courses/:id" />
       <Route exact component={SignUp} path="/signup" />
       <Route exact component={Login} path="/login" />
       {isAdmin ? <AdminRoute exact component={Admin} path="/admin" /> : ""}

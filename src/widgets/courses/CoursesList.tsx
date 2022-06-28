@@ -1,7 +1,11 @@
 import React, { useMemo, useState, useEffect } from "react";
-import BlogPostCard from "./../../teleporthq/components/blog-post-card";
+import styled from "styled-components";
+
 import getCourses from "./../../services/courses/getCourses";
 import store from "./../../store/index";
+
+import { Link } from "react-router-dom";
+import BlogPostCard from "./../../teleporthq/components/blog-post-card";
 import Container from "../../components/layout/Container";
 
 const CoursesList = () => {
@@ -13,7 +17,10 @@ const CoursesList = () => {
   let content: any = "";
   if (courses !== null)
     content = store.courses.value.map((course: any) => (
-      <BlogPostCard {...course} />
+      <Link to={`courses/${course.id}`}>
+        {" "}
+        <BlogPostCard {...course} />{" "}
+      </Link>
     ));
   if (error) content = error?.message;
   return <Container>{content}</Container>;
