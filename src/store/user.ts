@@ -7,7 +7,7 @@ const user = {
   signUp: (data: any) => supabase.auth.signUp(data),
   signIn: async (data: { email: string; password: string }) => {
     const res = await supabase.auth.signIn(data);
-    console.log(res.user, res.session, res.error);
+    // console.log(res.user, res.session, res.error);
     if (!res.error) {
       user.session.next(session);
     }

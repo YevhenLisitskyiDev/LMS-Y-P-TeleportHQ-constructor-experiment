@@ -49,6 +49,7 @@ const store = {
   user: new Subject<any>(null),
   isAdmin: new Subject<boolean>(false),
   courses: new Subject<any>(null),
+  currentLessons: new Subject<any>(null),
   error: new Subject<any>(null),
 };
 

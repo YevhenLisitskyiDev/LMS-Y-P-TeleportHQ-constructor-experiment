@@ -16,12 +16,14 @@ import Course from './teleporthq/pages/course.js'
 
 import store from "./store/index.ts";
 
+
 const App = () => {
   const user = store.user.hook();
   const isAdmin = store.isAdmin.hook();
 
   useEffect(() => {
     if (store.auth.session.value) setUserData();
+
   }, []);
 
   return (
