@@ -1,9 +1,9 @@
 import React from 'react'
 import GetUsersbutton from '../../widgets/users/GetUsersbutton'
+import CoursesCreator from '../../widgets/admin/courses/CoursesCreator'
 
 import { Helmet } from 'react-helmet'
 
-import Form1 from '../components/form1'
 import './admin.css'
 
 const Admin = (props) => {
@@ -15,7 +15,13 @@ const Admin = (props) => {
       </Helmet>
       <h1>Admin Route</h1>
       <GetUsersbutton></GetUsersbutton>
-      <Form1></Form1>
+      <div className="admin-container1">
+        <div className="admin-container2">
+          <h1 className="admin-add-new-course">Add new course</h1>
+          <CoursesCreator></CoursesCreator>
+        </div>
+        <div className="admin-container3"></div>
+      </div>
     </div>
   )
 }

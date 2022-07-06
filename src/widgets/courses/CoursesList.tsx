@@ -1,8 +1,8 @@
 import React, { useMemo, useState, useEffect } from "react";
-import styled from "styled-components";
 
 import getCourses from "./../../services/courses/getCourses";
 import store from "./../../store/index";
+import supabase from "./../../services/supabase"
 
 import { Link } from "react-router-dom";
 import BlogPostCard from "./../../teleporthq/components/blog-post-card";
