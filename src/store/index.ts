@@ -51,6 +51,7 @@ const store = {
   courses: new Subject<any>(null),
   currentLessons: new Subject<any>(null),
   message: new Subject<any>(null),
+  error: new Subject<any>(null),
 };
 
 supabase.auth.onAuthStateChange(async (event, session) => {
