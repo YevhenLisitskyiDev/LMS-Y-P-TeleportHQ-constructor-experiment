@@ -8,9 +8,28 @@ interface PrivateRouteProps {
   exact?: boolean;
 }
 
-const PrivateRoute: FC<PrivateRouteProps> = (props) => {
+// create functional private route react component
+
+const PrivateRoute = ({
+  path,
+  component: Component,
+  exact,
+}: PrivateRouteProps) => {
   const session = store.auth.session.hook();
-  return session ? <Route {...props} /> : <Redirect to="/login" />;
+
+  return (
+    <Route
+      path={path}
+      exact={exact}
+      render={(props) => {
+        if (session) {
+          return <Component {...props} />;
+        } else {
+          return <Redirect to="/login" />;
+        }
+      }}
+    />
+  );
 };
 
 export default PrivateRoute;
