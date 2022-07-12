@@ -1,0 +1,20 @@
+.auth-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.auth-container1 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-size: auto;
+  justify-content: center;
+  background-image: url('https://images.unsplash.com/photo-1657635167783-124de1fab0f0?ixid=Mnw5MTMyMXwwfDF8YWxsfDI0fHx8fHx8Mnx8MTY1NzY0NzE1NQ&ixlib=rb-1.2.1&w=1500');
+  background-repeat: no-repeat;
+  background-position: top;
+}

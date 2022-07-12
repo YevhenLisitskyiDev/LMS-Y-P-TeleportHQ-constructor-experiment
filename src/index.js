@@ -1,14 +1,13 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import GlobalStyle from "./globalStyle"
+import GlobalStyle from "./globalStyle";
 import AdminRoute from "./components/AdminRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import "./teleporthq/style.css";
 import setUserData from "./services/users/setUserData";
-import Login from "./teleporthq/pages/login";
+import Auth from "./teleporthq/pages/auth.js"
 
-import SignUp from "./teleporthq/pages/sign-up";
 import PrivatePage from "./teleporthq/pages/private-page";
 import Admin from "./teleporthq/pages/admin";
 // import Home from "./pages/home";
@@ -20,17 +19,17 @@ import store from "./store/index.ts";
 const App = () => {
   const user = store.user.hook();
   const isAdmin = store.isAdmin.hook();
-  const message = store.message.hook()
+  const message = store.message.hook();
 
   useEffect(() => {
     if (store.auth.session.value) setUserData();
   }, []);
 
-  useEffect(()=> {}, [message])
+  useEffect(() => {}, [message]);
 
   return (
     <Router>
-    <GlobalStyle />
+      <GlobalStyle />
       <nav
         style={{
           display: "flex",
@@ -65,16 +64,13 @@ const App = () => {
           </>
         )}
       </nav>
-      <Route exact component={Home} path="/" />
+      <PrivateRoute exact component={Home} path="/" />
       <Route exact component={Course} path="/courses/:id" />
-      <Route exact component={SignUp} path="/signup" />
-      <Route exact component={Login} path="/login" />
+      <Route exact component={Auth} path="/signup" />
+      <Route exact component={Auth} path="/login" />
       {isAdmin ? <AdminRoute exact component={Admin} path="/admin" /> : ""}
-      {user ? (
-        <PrivateRoute exact component={PrivatePage} path="/private" />
-      ) : (
-        ""
-      )}
+
+      <PrivateRoute exact component={PrivatePage} path="/private" />
     </Router>
   );
 };
