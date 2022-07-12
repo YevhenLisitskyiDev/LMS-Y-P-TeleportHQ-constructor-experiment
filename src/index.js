@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Redirect} from "react-router-dom";
 import GlobalStyle from "./globalStyle";
 import AdminRoute from "./components/AdminRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import "./teleporthq/style.css";
 import setUserData from "./services/users/setUserData";
-import Auth from "./teleporthq/pages/auth.js"
+import Auth from "./teleporthq/pages/auth.js";
 
 import PrivatePage from "./teleporthq/pages/private-page";
 import Admin from "./teleporthq/pages/admin";
@@ -43,9 +43,9 @@ const App = () => {
           alignItems: "center",
         }}
       >
-        <Link to="/">HOME</Link>&nbsp;|&nbsp;
         {user ? (
           <>
+            <Link to="/home">HOME</Link>&nbsp;|&nbsp;
             {isAdmin ? (
               <>
                 <Link to="/admin">ADMIN</Link>&nbsp;|&nbsp;
@@ -64,12 +64,12 @@ const App = () => {
           </>
         )}
       </nav>
-      <PrivateRoute exact component={Home} path="/" />
-      <Route exact component={Course} path="/courses/:id" />
       <Route exact component={Auth} path="/signup" />
       <Route exact component={Auth} path="/login" />
       {isAdmin ? <AdminRoute exact component={Admin} path="/admin" /> : ""}
 
+      <PrivateRoute exact component={Home} path="/" />
+      <PrivateRoute exact component={Course} path="/courses/:id" />
       <PrivateRoute exact component={PrivatePage} path="/private" />
     </Router>
   );

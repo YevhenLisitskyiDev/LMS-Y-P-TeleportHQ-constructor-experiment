@@ -11,7 +11,7 @@ const authModes = {
 };
 
 const EmailAuth = () => {
-  const user = store.user.hook();
+  const session = store.auth.session.hook();
   const route = window.location.pathname;
   const authHandler = authModes[route];
 
@@ -21,7 +21,7 @@ const EmailAuth = () => {
 
     authHandler({ email: email.value, password: password.value });
   };
-  return user ? <Redirect to="/" /> : <AuthForm submitHandler={handleSubmit} />;
+  return session ? <Redirect to="/" /> : <AuthForm submitHandler={handleSubmit} />;
 };
 
 export default EmailAuth;

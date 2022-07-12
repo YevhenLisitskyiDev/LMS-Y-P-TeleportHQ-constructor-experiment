@@ -9,6 +9,14 @@
 .admin-container1 {
   flex: 0 0 auto;
   width: 100%;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: var(--dl-size-size-small);
+  display: flex;
+  align-items: flex-start;
+}
+.admin-container2 {
+  flex: 0 0 auto;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -17,7 +25,7 @@
   flex-direction: row;
   justify-content: space-between;
 }
-.admin-container2 {
+.admin-container3 {
   flex: 0 0 auto;
   width: auto;
   height: 100px;
@@ -28,11 +36,11 @@
 .admin-add-new-course {
   margin-bottom: var(--dl-space-space-halfunit);
 }
-.admin-container3 {
+.admin-container4 {
   flex: 0 0 auto;
   width: auto;
   border: 2px dashed rgba(120, 120, 120, 0.4);
-  height: 100px;
+  height: var(--dl-size-size-small);
   display: flex;
   align-items: flex-start;
 }
