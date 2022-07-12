@@ -1,0 +1,19 @@
+.auth-form-container {
+  display: flex;
+  position: relative;
+}
+.auth-form-form {
+  width: 267px;
+  height: 151px;
+  align-self: center;
+}
+.auth-form-textinput {
+  margin-bottom: var(--dl-space-space-unit);
+}
+.auth-form-textinput1 {
+  margin-bottom: var(--dl-space-space-unit);
+}
+.auth-form-button {
+  color: var(--dl-color-gray-white);
+  background-color: var(--dl-color-success-700);
+}

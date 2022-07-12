@@ -1,5 +1,5 @@
 import React from 'react'
-import AuthForm from '../../widgets/auth/AuthForm'
+import EmailAuth from '../../widgets/auth/EmailAuth'
 
 import { Helmet } from 'react-helmet'
 
@@ -13,7 +13,7 @@ const Auth = (props) => {
         <meta property="og:title" content="Auth - LMS-V2" />
       </Helmet>
       <div className="auth-container1">
-        <AuthForm></AuthForm>
+        <EmailAuth></EmailAuth>
       </div>
     </div>
   )
