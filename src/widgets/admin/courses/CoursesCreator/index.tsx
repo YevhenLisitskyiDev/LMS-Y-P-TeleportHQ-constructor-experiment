@@ -39,10 +39,20 @@ const CoursesCreator = () => {
     setIsOpen(!isOpen);
   }, [isOpen]);
 
+  // create click outsid modal window content handler function with use callback hook
+  const clickOutsideModalWindow = React.useCallback(
+    (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      if (event.target === event.currentTarget) {
+        toggleModalWindow();
+      }
+    },
+    [toggleModalWindow]
+  );
+
   return (
     <>
       <AddCourseButton onClick={toggleModalWindow}>Add Course</AddCourseButton>
-      <ModalWindow onClick={() => setIsOpen(false)} isOpen={isOpen}>
+      <ModalWindow onClick={(e) => clickOutsideModalWindow(e)} isOpen={isOpen}>
         <CoursesManagementForm submitHandler={(e) => submitHandler(e)} />
       </ModalWindow>
     </>
