@@ -39,7 +39,7 @@
 .admin-container4 {
   flex: 0 0 auto;
   width: auto;
-  height: var(--dl-size-size-small);
+  height: auto;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
