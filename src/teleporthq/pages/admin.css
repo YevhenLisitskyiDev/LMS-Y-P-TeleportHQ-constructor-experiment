@@ -28,7 +28,7 @@
 .admin-container3 {
   flex: 0 0 auto;
   width: auto;
-  height: 100px;
+  height: auto;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -39,8 +39,11 @@
 .admin-container4 {
   flex: 0 0 auto;
   width: auto;
-  border: 2px dashed rgba(120, 120, 120, 0.4);
   height: var(--dl-size-size-small);
   display: flex;
   align-items: flex-start;
+  flex-direction: column;
+}
+.admin-manage-your-courses {
+  margin-bottom: var(--dl-space-space-unit);
 }

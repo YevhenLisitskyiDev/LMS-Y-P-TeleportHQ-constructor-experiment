@@ -1,6 +1,7 @@
 import React from 'react'
 import GetUsersbutton from '../../widgets/users/GetUsersbutton'
-import CoursesCreator from '../../components/admin/CoursesCreator'
+import CoursesCreaationTool from '../../widgets/admin/courses/CoursesCreaationTool'
+import CoursesManagementTool from '../../widgets/admin/courses/CoursesManagementTool'
 
 import { Helmet } from 'react-helmet'
 
@@ -19,9 +20,12 @@ const Admin = (props) => {
       <div className="admin-container2">
         <div className="admin-container3">
           <h1 className="admin-add-new-course">Add new course</h1>
-          <CoursesCreator></CoursesCreator>
+          <CoursesCreaationTool></CoursesCreaationTool>
         </div>
-        <div className="admin-container4"></div>
+        <div className="admin-container4">
+          <h2 className="admin-manage-your-courses">Manage your courses</h2>
+          <CoursesManagementTool></CoursesManagementTool>
+        </div>
       </div>
     </div>
   )

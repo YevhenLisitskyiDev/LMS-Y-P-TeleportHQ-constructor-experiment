@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Route, Redirect } from "react-router-dom";
-import store from "./../store";
+import store from "./../../store";
 
 // crete a new component that will render either the route or a redirect using renderProps
 const PrivateRoute: FC<any> = (props) => {
