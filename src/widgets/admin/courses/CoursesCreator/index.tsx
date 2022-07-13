@@ -1,5 +1,5 @@
 import React from "react";
-import CoursesManagementForm from "./../../../../teleporthq/components/courses-management-form.js";
+import CoursesManagementForm from "./../../../../teleporthq/components/courses-management-form";
 import submitHandler from "./submitHandler";
 
 
