@@ -25,11 +25,12 @@ const CoursesManager = () => {
     <div>
       <h1>Courses</h1>
       <ul>
-	{courses.map((course) => (
-	  <li key={course.id}>
-	    {course.name} - {course.description}
-	  </li>
-	))}
+        {courses.map((course) => (
+          <li key={course.id}>
+            {course.name} - {course.description}
+          </li>
+        ))}
       </ul>
     </div>
+  );
 };
