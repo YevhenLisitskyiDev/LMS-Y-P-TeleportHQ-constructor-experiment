@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import config from "../../../../config";
-import supabase from "../../../../services/supabase";
+import config from "../../../config";
+import supabase from "../../../services/supabase";
 
 const CoursesManager = () => {
   const [courses, setCourses] = useState(null);
@@ -34,3 +34,5 @@ const CoursesManager = () => {
     </div>
   );
 };
+
+export default CoursesManager;

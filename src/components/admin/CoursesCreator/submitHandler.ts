@@ -1,5 +1,5 @@
-import supabase from "./../../../../services/supabase";
-import config from "./../../../../config";
+import supabase from "../../../services/supabase";
+import config from "../../../config";
 
 const submitHandler = async (e) => {
   e.preventDefault();

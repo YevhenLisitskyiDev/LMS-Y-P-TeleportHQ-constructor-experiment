@@ -1,6 +1,6 @@
 import React from 'react'
 import GetUsersbutton from '../../widgets/users/GetUsersbutton'
-import CoursesCreator from '../../widgets/admin/courses/CoursesCreator'
+import CoursesCreator from '../../components/admin/CoursesCreator'
 
 import { Helmet } from 'react-helmet'
 
