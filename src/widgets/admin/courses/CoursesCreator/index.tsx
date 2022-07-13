@@ -42,7 +42,7 @@ const CoursesCreator = () => {
   return (
     <>
       <AddCourseButton onClick={toggleModalWindow}>Add Course</AddCourseButton>
-      <ModalWindow isOpen={isOpen}>
+      <ModalWindow onClick={() => setIsOpen(false)} isOpen={isOpen}>
         <CoursesManagementForm submitHandler={(e) => submitHandler(e)} />
       </ModalWindow>
     </>
