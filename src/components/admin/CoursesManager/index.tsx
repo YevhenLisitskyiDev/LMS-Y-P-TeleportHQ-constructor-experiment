@@ -6,8 +6,7 @@ import supabase from "../../../services/supabase";
 import { deleteCourseHandler } from "./UDHandlers.ts";
 import Accordion from "./../../Accordion";
 import { CousreTitleLayout, CousreContentLayout } from "./CoursesManagerItems";
-
-const Span = styled.span`color: red;`;
+import LessonsList from "../LessonsList";
 
 const CoursesManager = () => {
   const courses = store.courses.hook();
@@ -33,7 +32,7 @@ const CoursesManager = () => {
       <Accordion
         content={courses}
         titleLayout={CousreTitleLayout}
-        contentLayout={CousreContentLayout}
+        contentLayout={LessonsList}
       />
     </div>
   );

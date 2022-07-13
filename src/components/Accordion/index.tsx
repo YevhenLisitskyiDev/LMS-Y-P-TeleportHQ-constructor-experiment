@@ -49,7 +49,7 @@ function Accordion({ content, titleLayout: TitleLayout, contentLayout: ContentLa
               itemIndex={itemIndex}
               {...accordionItemProps}
               title={() => <TitleLayout data={item}/>}
-              content={() => <ContentLayout data={item}/>}
+              content={() => <ContentLayout isSelected={currentAccordion === itemIndex} data={item}/>}
             />
           ))}
         </AccordionInner>
