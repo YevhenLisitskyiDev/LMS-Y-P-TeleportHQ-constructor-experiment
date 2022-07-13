@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import CoursesManagementForm from "../../../teleporthq/components/courses-management-form";
 import submitHandler from "./submitHandler";
+import {XButton} from "./../../buttons.tsx"
 
 // create add course button with styled component
 const AddCourseButton = styled.button`
@@ -34,28 +35,13 @@ const ModalWindow = styled.div`
 // create content container with styled component
 const ContentContainer = styled.div`
   background-color: #fff;
-  padding: 1rem;
+  padding: 4rem 2rem;
   border-radius: 0.3rem;
+
+  position:relative;
 `;
 
-// create x closing button for modal window  with styled component
-const XButton = styled.button`
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  background-color: #f44336;
-  color: #fff;
-  font-size: 1.2rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.3rem;
-  border: none;
-  cursor: pointer;
 
-  &:hover {
-    background-color: #00bcd4;
-    color: #fff;
-  }
-`;
 
 const CoursesCreator = () => {
   const [isOpen, setIsOpen] = React.useState(false);
