@@ -7,7 +7,7 @@ const getUsers = async () => {
   .from('users')
   .select('*')
     
-  console.log("data: ", users, "error: ", error)
+  // console.log("data: ", users, "error: ", error)
 };
 
 export default getUsers;

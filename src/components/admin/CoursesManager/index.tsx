@@ -4,10 +4,14 @@ import config from "../../../config";
 import store from "../../../store";
 import supabase from "../../../services/supabase";
 import { deleteCourseHandler } from "./UDHandlers.ts";
+import Accordion from "./../../Accordion";
+import { CousreTitleLayout, CousreContentLayout } from "./CoursesManagerItems";
+
+const Span = styled.span`color: red;`;
 
 const CoursesManager = () => {
   const courses = store.courses.hook();
-  const [error, setError] = useState<string>("");
+  const error = store.error.hook();
 
   useEffect(async () => {
     let { data: courses, error } = await supabase
@@ -26,16 +30,11 @@ const CoursesManager = () => {
   return (
     <div>
       <h1>Courses</h1>
-      <ul>
-        {courses.map((course) => (
-          <li key={course.id}>
-            {course.name} - {course.description}
-            <button onClick={() => deleteCourseHandler(course.id, setError)}>
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
+      <Accordion
+        content={courses}
+        titleLayout={CousreTitleLayout}
+        contentLayout={CousreContentLayout}
+      />
     </div>
   );
 };

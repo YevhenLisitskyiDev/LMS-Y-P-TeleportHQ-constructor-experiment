@@ -1,3 +1,4 @@
+import React from 'react'
 import styled, { css } from "styled-components";
 
 export const AccordionContainer = styled.div``;
@@ -160,7 +161,7 @@ export const PlusMinusIcon = styled.div<PlusMinusIconProps>`
   &:after {
     position: absolute;
     transition: 0.3s;
-    background: #fff;
+    background: #000;
     border-radius: 2px;
     width: 27px;
     height: 2px;
