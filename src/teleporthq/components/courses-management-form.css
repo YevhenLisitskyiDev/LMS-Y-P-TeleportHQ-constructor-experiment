@@ -1,0 +1,36 @@
+.courses-management-form-container {
+  display: flex;
+  position: relative;
+}
+.courses-management-form-form {
+  height: auto;
+  align-self: center;
+}
+.courses-management-form-textinput {
+  width: var(--dl-size-size-xxlarge);
+  margin-bottom: var(--dl-space-space-unit);
+}
+.courses-management-form-textarea {
+  width: var(--dl-size-size-xxlarge);
+  height: 157px;
+  margin-bottom: var(--dl-space-space-unit);
+}
+.courses-management-form-textinput1 {
+  width: var(--dl-size-size-xxlarge);
+  margin-bottom: var(--dl-space-space-unit);
+}
+.courses-management-form-course-image-input {
+  width: 328px;
+  margin-bottom: var(--dl-space-space-unit);
+}
+.courses-management-form-button {
+  color: var(--dl-color-gray-white);
+  transition: 0.3s;
+  background-color: var(--dl-color-success-700);
+}
+.courses-management-form-button:hover {
+  cursor: pointer;
+}
+.courses-management-form-button:disabled {
+  cursor: none;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import CourseCreationForm from "../../../../teleporthq/components/course-creation-form";
+import CoursesManagementForm from "./../../../../teleporthq/components/courses-management-form.js";
 import submitHandler from "./submitHandler";
 
 
@@ -7,7 +7,7 @@ const CoursesCreator = () => {
   
   return (
     <>
-      <CourseCreationForm submitHandler={(e) => submitHandler(e)} />
+      <CoursesManagementForm submitHandler={(e) => submitHandler(e)} />
     </>
   );
 };

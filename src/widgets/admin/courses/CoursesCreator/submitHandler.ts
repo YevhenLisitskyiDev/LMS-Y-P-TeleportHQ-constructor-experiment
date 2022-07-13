@@ -1,5 +1,5 @@
-import supabase from "./../../../services/supabase.ts";
-import config from "./../../../config.ts";
+import supabase from "./../../../../services/supabase.ts";
+import config from "./../../../../config.ts";
 
 const submitHandler = async (e) => {
   e.preventDefault();
@@ -14,7 +14,7 @@ const submitHandler = async (e) => {
     if (fieldName) formData[fieldName] = fieldValue;
   }
 
-  const { data, error } = await supabase.from("courses").insert([formData]);
+  const { data, error } = await true ? supabase.from("courses").insert([formData]) :  supabase.from("courses").update([formData]) ;
   if (!error) {
     for (let i = 0; i < e.target.length; i++) {
       const fieldValue = e.target[i].value;
