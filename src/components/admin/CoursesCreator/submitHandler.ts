@@ -7,7 +7,6 @@ const submitHandler = async (e) => {
   e.preventDefault();
   const button = e.target[e.target.length - 1];
   button.disabled = true;
-  console.log(button);
   const formData = { organization_id: config.ORGANIZATION_ID };
 
   for (let i = 0; i < e.target.length; i++) {
