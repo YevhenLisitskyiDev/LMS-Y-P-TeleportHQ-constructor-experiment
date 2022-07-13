@@ -31,6 +31,32 @@ const ModalWindow = styled.div`
   align-items: center;
 `;
 
+// create content container with styled component
+const ContentContainer = styled.div`
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.3rem;
+`;
+
+// create x closing button for modal window  with styled component
+const XButton = styled.button`
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: #f44336;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #00bcd4;
+    color: #fff;
+  }
+`;
+
 const CoursesCreator = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -39,7 +65,7 @@ const CoursesCreator = () => {
     setIsOpen(!isOpen);
   }, [isOpen]);
 
-  // create click outsid modal window content handler function with use callback hook
+  // create click outside modal window content handler function with use callback hook
   const clickOutsideModalWindow = React.useCallback(
     (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
       if (event.target === event.currentTarget) {
@@ -53,7 +79,10 @@ const CoursesCreator = () => {
     <>
       <AddCourseButton onClick={toggleModalWindow}>Add Course</AddCourseButton>
       <ModalWindow onClick={(e) => clickOutsideModalWindow(e)} isOpen={isOpen}>
-        <CoursesManagementForm submitHandler={(e) => submitHandler(e)} />
+        <ContentContainer>
+          <XButton onClick={toggleModalWindow}>X</XButton>
+          <CoursesManagementForm submitHandler={(e) => submitHandler(e)} />
+        </ContentContainer>
       </ModalWindow>
     </>
   );
