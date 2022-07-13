@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import styled from "styled-components";
 import config from "../../../config";
+import store from "../../../store";
 import supabase from "../../../services/supabase";
+import { deleteCourseHandler } from "./UDHandlers.ts";
 
 const CoursesManager = () => {
-  const [courses, setCourses] = useState(null);
-  const [error, setError] = useState(null);
+  const courses = store.courses.hook();
+  const [error, setError] = useState<string>("");
 
   useEffect(async () => {
     let { data: courses, error } = await supabase
@@ -13,7 +15,7 @@ const CoursesManager = () => {
       .select("*")
       .eq("organization_id", config.ORGANIZATION_ID);
 
-    if (!error) setCourses(courses);
+    if (!error) store.courses.next(courses);
     if (error) setError(error);
   }, []);
 
@@ -28,6 +30,9 @@ const CoursesManager = () => {
         {courses.map((course) => (
           <li key={course.id}>
             {course.name} - {course.description}
+            <button onClick={() => deleteCourseHandler(course.id, setError)}>
+              Delete
+            </button>
           </li>
         ))}
       </ul>

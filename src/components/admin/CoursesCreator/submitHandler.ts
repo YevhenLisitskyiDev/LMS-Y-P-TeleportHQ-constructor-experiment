@@ -1,5 +1,7 @@
 import supabase from "../../../services/supabase";
 import config from "../../../config";
+import store from "../../../store";
+
 
 const submitHandler = async (e) => {
   e.preventDefault();
@@ -21,6 +23,7 @@ const submitHandler = async (e) => {
       if (fieldValue) e.target[i].value = "";
     }
     button.disabled = false;
+    store.courses.nextPush(data[0])
 
     alert("Course created successfully");
   } else alert(error?.message);
