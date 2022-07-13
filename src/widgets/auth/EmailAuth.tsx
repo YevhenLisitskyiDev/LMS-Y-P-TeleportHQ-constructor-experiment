@@ -2,7 +2,7 @@ import React, { SyntheticEvent } from "react";
 import { Redirect } from "react-router-dom";
 
 // @ts-ignore
-import AuthForm from "./../../teleporthq/components/auth-form.js";
+import AuthForm from "./../../teleporthq/components/auth-form";
 import store from "../../store";
 
 const authModes = {

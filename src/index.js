@@ -6,13 +6,13 @@ import AdminRoute from "./components/AdminRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import "./teleporthq/style.css";
 import setUserData from "./services/users/setUserData";
-import Auth from "./teleporthq/pages/auth.js";
+import Auth from "./teleporthq/pages/auth";
 
 import PrivatePage from "./teleporthq/pages/private-page";
 import Admin from "./teleporthq/pages/admin";
 // import Home from "./pages/home";
 import Home from "./teleporthq/pages/home";
-import Course from "./teleporthq/pages/course.js";
+import Course from "./teleporthq/pages/course";
 
 import store from "./store/index.ts";
 
