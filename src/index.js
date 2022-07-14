@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route, Link, Redirect} from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
 import GlobalStyle from "./globalStyle";
 import AdminRoute from "./components/routes/AdminRoute";
 import PrivateRoute from "./components/routes/PrivateRoute";
@@ -15,6 +20,7 @@ import Home from "./teleporthq/pages/home";
 import Course from "./teleporthq/pages/course";
 
 import store from "./store/index.ts";
+import ModalWindow from "./components/ModalWindow";
 
 const App = () => {
   const user = store.user.hook();
@@ -41,8 +47,7 @@ const App = () => {
           justifyContent: "center",
           background: "#ccc",
           alignItems: "center",
-        }}
-      >
+        }}>
         {user ? (
           <>
             <Link to="/home">HOME</Link>&nbsp;|&nbsp;
@@ -71,6 +76,7 @@ const App = () => {
       <PrivateRoute exact component={Home} path="/" />
       <PrivateRoute exact component={Course} path="/courses/:id" />
       <PrivateRoute exact component={PrivatePage} path="/private" />
+      <ModalWindow />
     </Router>
   );
 };
