@@ -55,20 +55,20 @@ const LessonsManagementForm = (props) => {
 
 LessonsManagementForm.defaultProps = {
   lessonNamePlaceholder: 'Lesson name',
+  videoUrlPlaceholder: 'Video url',
+  videoHostingTypeSelectLabel: 'Video Hosting Type',
   lessonDescriptionPlaceholder: 'Lesson description',
   buttonText: 'Submit',
   submitHandler: () => {},
-  videoUrlPlaceholder: 'Video url',
-  videoHostingTypeSelectLabel: 'Video Hosting Type',
 }
 
 LessonsManagementForm.propTypes = {
   lessonNamePlaceholder: PropTypes.string,
+  videoUrlPlaceholder: PropTypes.string,
+  videoHostingTypeSelectLabel: PropTypes.string,
   lessonDescriptionPlaceholder: PropTypes.string,
   buttonText: PropTypes.string,
   submitHandler: PropTypes.func,
-  videoUrlPlaceholder: PropTypes.string,
-  videoHostingTypeSelectLabel: PropTypes.string,
 }
 
 export default LessonsManagementForm
