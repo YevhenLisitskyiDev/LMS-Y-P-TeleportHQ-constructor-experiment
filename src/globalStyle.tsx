@@ -5,6 +5,9 @@ const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
 }
 
+body {
+  position: relative;
+}
 `;
 
 export default GlobalStyle;
