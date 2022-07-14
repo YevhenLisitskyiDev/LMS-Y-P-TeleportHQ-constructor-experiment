@@ -3,14 +3,11 @@ import styled from "styled-components";
 import config from "../../../config";
 import store from "../../../store";
 import supabase from "../../../services/supabase";
-import { deleteCourseHandler } from "./UDHandlers.ts";
-import Accordion from "./../../Accordion";
-import { CousreTitleLayout, CousreContentLayout } from "./CoursesManagerItems";
-import LessonsList from "../LessonsList";
+import { CourseItem } from "./CoursesManagerItems";
 
 const CoursesManager = () => {
   const courses = store.courses.hook();
-  const error = store.error.hook();
+  const [error, setError] = useState(null);
 
   useEffect(async () => {
     let { data: courses, error } = await supabase
@@ -29,11 +26,9 @@ const CoursesManager = () => {
   return (
     <div>
       <h1>Courses</h1>
-      <Accordion
-        content={courses}
-        titleLayout={CousreTitleLayout}
-        contentLayout={LessonsList}
-      />
+      {courses.map((course) => (
+        <CourseItem key={course.id} course={course} />
+      ))}
     </div>
   );
 };
