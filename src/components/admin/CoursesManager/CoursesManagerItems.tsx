@@ -89,7 +89,7 @@ export const CourseItem = ({ data: course }) => {
 
       <Curtain isOpen={isOpen}>
         <LessonsList id={course.id} isSelected={loadItemsTrigger} />
-        <OpenModalButton modalContent={()=> <span>Its working</span>}>Add lesson</OpenModalButton>
+        <OpenModalButton modalContent={()=> <span>{course.id}</span>}>Add lesson</OpenModalButton>
       </Curtain>
     </CourseItemWrapper>
   );
