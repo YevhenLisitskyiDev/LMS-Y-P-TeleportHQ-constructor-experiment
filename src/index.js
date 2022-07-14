@@ -77,6 +77,7 @@ const App = () => {
       <PrivateRoute exact component={Course} path="/courses/:id" />
       <PrivateRoute exact component={PrivatePage} path="/private" />
       <ModalWindow />
+
     </Router>
   );
 };

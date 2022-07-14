@@ -29,8 +29,9 @@ const ContentContainer = styled.div`
 
 const ModalWindow = () => {
   const isOpen = store.modal.isOpen.hook();
-  const ModalContent = store.modal.content.hook();
+  const modalContent = store.modal.content.hook();
   
+  console.log(modalContent)
 
   useEffect(() => {
     const escFunction = (event: KeyboardEvent) => {
@@ -64,7 +65,7 @@ const ModalWindow = () => {
         isOpen={isOpen}>
         <ContentContainer>
           <XButton onClick={toggleModalWindow}>X</XButton>
-          <ModalContent />
+         {modalContent}
         </ContentContainer>
       </ModalWindowWrapper>
     </>

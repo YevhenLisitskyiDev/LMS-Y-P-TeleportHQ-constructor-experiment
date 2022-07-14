@@ -54,7 +54,7 @@ const store = {
   error: new Subject<any>(null),
   modal: {
     isOpen: new Subject<boolean>(false),
-    content: new Subject<any>(null),
+    content: new Subject<any>("null"),
   }
 };
 
