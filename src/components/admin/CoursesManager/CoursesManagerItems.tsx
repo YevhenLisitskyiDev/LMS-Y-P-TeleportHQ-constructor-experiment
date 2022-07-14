@@ -31,7 +31,6 @@ export const CousreTitleLayout = ({ course }) => {
       {course.name} - {course.description}
       <XButton
         onClick={(e) => {
-          e.preventDefault();
           deleteCourseHandler(course.id);
         }}
       >
