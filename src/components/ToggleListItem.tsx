@@ -32,7 +32,7 @@ const ToggleListItem = ({
 
   // Make toggle is open function with useCallback
   const toggleIsOpen = (e) => {
-    console.log(data)
+    // console.log(data)
     if (e.target.nodeName === "BUTTON") {
       setIsOpen(false);
       return;

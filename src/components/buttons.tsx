@@ -52,7 +52,6 @@ export const ColoredButton = styled.button<{ mode?: "edit" | "add" | "delete" }>
 `;
 
 const EditAndDeleteButtonsBundleWrapper = styled.div`
-  max-width: 200px;
 
   & button {
     margin-left: 20px;

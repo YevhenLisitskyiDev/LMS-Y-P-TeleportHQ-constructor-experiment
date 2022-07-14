@@ -12,7 +12,6 @@ const LessonsManager = memo(({ id, isSelected }) => {
   const error = store.error.hook();
 
   useEffect(async () => {
-    console.log("lessonsListt mounted");
     if (isSelected) {
       let { data: lessons, error } = await supabase
         .from("lessons")
