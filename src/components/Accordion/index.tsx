@@ -36,11 +36,8 @@ function Accordion({ content, titleLayout: TitleLayout, contentLayout: ContentLa
     }
   };
 
-  
-
   return (
     <>
-    
       <AccordionContainer>
         <AccordionInner>
           {content?.map((item, itemIndex) => (
