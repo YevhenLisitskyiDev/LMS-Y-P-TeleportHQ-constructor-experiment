@@ -1,8 +1,7 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { XButton } from "./buttons.tsx";
 import store from "../store";
-
 
 // create add course button with styled component
 const AddCourseButton = styled.button`
@@ -38,12 +37,12 @@ const ContentContainer = styled.div`
   padding: 4rem 2rem;
   border-radius: 0.3rem;
 
-  position:relative;
+  position: relative;
 `;
 
-const OpenModalButton = ({children}) => {
-  const isOpen = store.modal.isOpen.hook()
-  const ModalContent = store.modal.content.hook()
+const OpenModalButton = ({ children }) => {
+  const isOpen = store.modal.isOpen.hook();
+  const ModalContent = store.modal.content.hook();
 
   useEffect(() => {
     const escFunction = (event: KeyboardEvent) => {
@@ -58,7 +57,6 @@ const OpenModalButton = ({children}) => {
 
   //  create toggle modal window function with use callback hook
   const toggleModalWindow = React.useCallback(() => {
-    
     store.modal.isOpen.toggle(false);
   }, [isOpen]);
 
@@ -77,7 +75,7 @@ const OpenModalButton = ({children}) => {
       <ModalWindow onClick={(e) => clickOutsideModalWindow(e)} isOpen={isOpen}>
         <ContentContainer>
           <XButton onClick={toggleModalWindow}>X</XButton>
-            <ModalContent />
+          <ModalContent />
         </ContentContainer>
       </ModalWindow>
     </>
