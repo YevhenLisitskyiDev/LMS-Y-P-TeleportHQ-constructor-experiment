@@ -3,11 +3,10 @@ import styled from "styled-components";
 import supabase from "./../../services/supabase";
 import store from "./../../store/";
 
-const LessonsList = memo(({ data, isSelected }) => {
+const LessonsList = memo(({ id, isSelected }) => {
   const [lessons, setLessons] = useState(null);
   const error = store.error.hook();
-  const id = data.id;
-
+console.log(isSelected)
   useEffect(async () => {
     console.log("lessonsListt mounted");
     if (isSelected) {
@@ -19,7 +18,7 @@ const LessonsList = memo(({ data, isSelected }) => {
       if (!error) setLessons(lessons);
       if (error) store.error.next(error);
     }
-  }, []);
+  }, [isSelected]);
 
   if (error) return <div>{error?.message}</div>;
   if (!lessons) return <div>Loading lessons...</div>;

@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import CoursesManagementForm from "../../../teleporthq/components/courses-management-form";
 import submitHandler from "./submitHandler";
-import {XButton} from "./../../buttons.tsx"
+import { XButton } from "./../../buttons.tsx";
 
 // create add course button with styled component
 const AddCourseButton = styled.button`
@@ -41,22 +41,29 @@ const ContentContainer = styled.div`
   position:relative;
 `;
 
-
-
 const CoursesCreator = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const escFunction = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("keydown", escFunction, false);
+
+    return () => document.removeEventListener("keydown", escFunction, false);
+  }, []);
 
   //  create toggle modal window function with use callback hook
   const toggleModalWindow = React.useCallback(() => {
     setIsOpen(!isOpen);
   }, [isOpen]);
 
-
-
   const clickOutsideModalWindow = React.useCallback(
     (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
       if (event.target === event.currentTarget) {
-        toggleModalWindow()
+        toggleModalWindow();
       }
     },
     [toggleModalWindow]
@@ -68,7 +75,7 @@ const CoursesCreator = () => {
       <ModalWindow onClick={(e) => clickOutsideModalWindow(e)} isOpen={isOpen}>
         <ContentContainer>
           <XButton onClick={toggleModalWindow}>X</XButton>
-           <CoursesManagementForm submitHandler={(e) => submitHandler(e)} />
+          <CoursesManagementForm submitHandler={(e) => submitHandler(e)} />
         </ContentContainer>
       </ModalWindow>
     </>
@@ -76,5 +83,3 @@ const CoursesCreator = () => {
 };
 
 export default CoursesCreator;
-
-    

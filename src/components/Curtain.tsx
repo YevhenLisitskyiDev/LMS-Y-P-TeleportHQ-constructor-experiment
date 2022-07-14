@@ -6,14 +6,10 @@ const Curtain = styled.div<{ isOpen: boolean }>`
   height: auto;
   max-height: ${({ isOpen }) => (!isOpen ? 0 : "100vh")};
 
-	/* Set our transitions up. */
-	-webkit-transition: max-height 0.8s;
-	-moz-transition: max-height 0.8s;
 	transition: max-height 0.8s;
-  transition: max-height 0.5s;
 
   overflow: hidden;
-position: relative;
+  position: relative;
   width: 100%;
   background: #fff;
   z-index: 1;

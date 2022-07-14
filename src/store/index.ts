@@ -52,6 +52,10 @@ const store = {
   currentLessons: new Subject<any>(null),
   message: new Subject<any>(null),
   error: new Subject<any>(null),
+  modal: {
+    isOpen: new Subject<boolean>(false),
+    content: new Subject<any>(null),
+  }
 };
 
 supabase.auth.onAuthStateChange(async (event, session) => {

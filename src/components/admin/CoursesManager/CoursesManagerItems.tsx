@@ -4,6 +4,8 @@ import { deleteCourseHandler } from "./UDHandlers.ts";
 import { XButton } from "../../../components/buttons";
 import { PlusMinusIcon } from "../../Accordion/AccordionComponents";
 import Curtain from "../../Curtain";
+import LessonsList from "../LessonsList";
+import OpenModalButton from "./../../OpenModalButton.tsx"
 
 const CousreTitleLayoutWrapper = styled.div`
   width: 95%;
@@ -15,7 +17,7 @@ const CousreTitleLayoutWrapper = styled.div`
 
   & button {
     margin-left: 20px;
-
+z-index: 1;
     position: relative;
     top: unset;
   }
@@ -58,38 +60,36 @@ const CourseTitleWrapper = styled.div`
 const CourseItemWrapper = styled.div`
   width: 100%;
   position: relative;
+  margin-bottom: 20px;
+  & * {
+    z-index: 1;
+  }
 `;
-
-// Create memoized component to prevent re-rendering with id prop and test console.log(id)
-export const CourseContentMemo = React.memo(({ id, loadItemsTrigger }) => {
-
-  return (
-    <div>
-      <h1>{id}</h1>
-    </div>
-  );
-});
 
 export const CourseItem = ({ data: course }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [loadItemsTrigger, setLoadItemsTrigger] = useState(false);
 
-
   // Make toggle is open function with useCallback
-  const toggleIsOpen = useCallback(() => {
-    if (!loadItemsTrigger) setLoadItemsTrigger(true)
+  const toggleIsOpen = (e) => {
+    if (e.target.nodeName === "BUTTON") {
+      setIsOpen(false);
+      return;
+    }
+    if (!loadItemsTrigger) setLoadItemsTrigger(true);
     setIsOpen(!isOpen);
-  }, [isOpen]);
+  };
 
   return (
     <CourseItemWrapper>
-      <CourseTitleWrapper onClick={toggleIsOpen}>
+      <CourseTitleWrapper onClick={(e) => toggleIsOpen(e)}>
         <PlusMinusIcon isOpen={isOpen} />
         <CousreTitleLayout course={course} />
       </CourseTitleWrapper>
 
       <Curtain isOpen={isOpen}>
-        <CourseContentMemo id={course.id} loadItemsTrigger={loadItemsTrigger} />
+        <LessonsList id={course.id} isSelected={loadItemsTrigger} />
+        <OpenModalButton modalContent={()=> <span>Its working</span>}>Add lesson</OpenModalButton>
       </Curtain>
     </CourseItemWrapper>
   );
