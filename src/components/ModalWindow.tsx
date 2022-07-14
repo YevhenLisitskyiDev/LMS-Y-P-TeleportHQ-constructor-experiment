@@ -30,6 +30,7 @@ const ContentContainer = styled.div`
 const ModalWindow = () => {
   const isOpen = store.modal.isOpen.hook();
   const ModalContent = store.modal.content.hook();
+  
 
   useEffect(() => {
     const escFunction = (event: KeyboardEvent) => {
