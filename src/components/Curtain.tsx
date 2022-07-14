@@ -13,6 +13,8 @@ const Curtain = styled.div<{ isOpen: boolean }>`
   width: 100%;
   background: #fff;
   z-index: 1;
+
+  border-bottom: 1px solid rgba(0,0,0,0.5);
 `;
 
 export default Curtain;

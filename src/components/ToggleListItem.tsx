@@ -9,6 +9,8 @@ const ItemTitleWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+
+  margin-bottom: 20px;
 `;
 
 const ListItemWrapper = styled.div`
@@ -30,6 +32,7 @@ const ToggleListItem = ({
 
   // Make toggle is open function with useCallback
   const toggleIsOpen = (e) => {
+    console.log(data)
     if (e.target.nodeName === "BUTTON") {
       setIsOpen(false);
       return;

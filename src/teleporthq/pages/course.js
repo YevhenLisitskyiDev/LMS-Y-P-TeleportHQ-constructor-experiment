@@ -1,5 +1,4 @@
 import React from 'react'
-import LessonsList from '../../widgets/lessons/LessonsList'
 
 import { Helmet } from 'react-helmet'
 
@@ -12,7 +11,6 @@ const Course = (props) => {
         <title>Course - LMS-V2</title>
         <meta property="og:title" content="Course - LMS-V2" />
       </Helmet>
-      <LessonsList></LessonsList>
     </div>
   )
 }

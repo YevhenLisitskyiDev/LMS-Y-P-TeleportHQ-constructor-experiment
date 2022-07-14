@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { Subject } from "subjecto";
 import styled from "styled-components";
 import config from "../../../config";
 import store from "../../../store";
 import supabase from "../../../services/supabase";
-import { CourseItem } from "./CoursesManagerItems";
+import { CourseItem, CourseManagerWrapper } from "./CoursesManagerItems";
 
 const CoursesManager = () => {
   const courses = store.courses.hook();
@@ -15,7 +16,13 @@ const CoursesManager = () => {
       .select("*")
       .eq("organization_id", config.ORGANIZATION_ID);
 
-    if (!error) store.courses.next(courses);
+    if (!error) {
+      courses.forEach((course) => {
+        if (!store.lessons[course.id])
+          store.lessons[course.id] = new Subject<any>(null);
+      });
+      store.courses.next(courses);
+    }
     if (error) setError(error);
   }, []);
 
@@ -24,13 +31,11 @@ const CoursesManager = () => {
   if (courses.length && courses.length === 0) return <div>No courses</div>;
 
   return (
-    <div>
-      <h1>Courses</h1>
+    <CourseManagerWrapper>
       {courses.map((course) => {
-        return <CourseItem key={course.id} data={course} />
+        return <CourseItem key={course.id} data={course} />;
       })}
-      
-    </div>
+    </CourseManagerWrapper>
   );
 };
 

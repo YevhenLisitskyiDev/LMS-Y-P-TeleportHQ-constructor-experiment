@@ -7,20 +7,16 @@
   align-self: center;
 }
 .courses-management-form-textinput {
-  width: var(--dl-size-size-xxlarge);
+  width: 100%;
   margin-bottom: var(--dl-space-space-unit);
 }
 .courses-management-form-textarea {
-  width: var(--dl-size-size-xxlarge);
+  width: 100%;
   height: 157px;
   margin-bottom: var(--dl-space-space-unit);
 }
 .courses-management-form-textinput1 {
-  width: var(--dl-size-size-xxlarge);
-  margin-bottom: var(--dl-space-space-unit);
-}
-.courses-management-form-course-image-input {
-  width: 328px;
+  width: 100%;
   margin-bottom: var(--dl-space-space-unit);
 }
 .courses-management-form-button {

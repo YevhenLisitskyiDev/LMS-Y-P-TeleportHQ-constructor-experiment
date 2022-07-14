@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 
 // create x closing button for modal window  with styled component
@@ -15,21 +16,22 @@ export const XButton = styled.button`
   cursor: pointer;
   z-index: 9999;
 
+  opacity: 1;
+  transition: 0.3s;
   &:hover {
-    background-color: #00bcd4;
-    color: #fff;
+    opacity: 0.5;
   }
 `;
 
 // create add course button with styled component
-export const AddSomethingButton = styled.button<{ mode?: "edit" | "add" }>`
+export const ColoredButton = styled.button<{ mode?: "edit" | "add" }>`
   background-color: ${({ mode }) => {
     if (mode === "edit") {
-      return "#00acc1";
+      return "#ffc107";
     } else if (mode === "add") {
-      return "#00acc1";
-    } else {
       return "#4caf50";
+    } else {
+      return "#00acc1";
     }
   }};
   color: #fff;
@@ -37,7 +39,33 @@ export const AddSomethingButton = styled.button<{ mode?: "edit" | "add" }>`
   padding: 0.5rem 1rem;
   border-radius: 0.3rem;
   cursor: pointer;
+  opacity: 1;
+  transition: 0.3s;
   &:hover {
-    background-color: #00acc1;
+    opacity: 0.5;
   }
 `;
+
+const EditAndDeleteButtonsBundleWrapper = styled.div`
+max-width: 200px;
+
+  & button {
+    margin-left: 20px;
+    z-index: 1;
+    position: relative;
+    top: unset;
+    right: 0;
+  }
+`
+
+export const EditAndDeleteButtonsBundle = ({
+  editHandler = () => {},
+  deleteHandler = () => {},
+}) => {
+  return (
+    <EditAndDeleteButtonsBundleWrapper>
+      <ColoredButton mode={"edit"}>Edit</ColoredButton>
+      <XButton onClick={deleteHandler}>Delete</XButton>
+    </EditAndDeleteButtonsBundleWrapper>
+  );
+};

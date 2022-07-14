@@ -1,14 +1,12 @@
-import { Subject } from "subjecto";
 import supabase from "../../../services/supabase";
-import config from "../../../config";
 import store from "../../../store";
+import config from "../../../config";
 
-
-const submitHandler = async (e) => {
+const submitHandler = async (e, id) => {
   e.preventDefault();
   const button = e.target[e.target.length - 1];
   button.disabled = true;
-  const formData = { organization_id: config.ORGANIZATION_ID };
+  const formData = { course_id: id, organization_id: config.ORGANIZATION_ID  };
 
   for (let i = 0; i < e.target.length; i++) {
     const fieldName = e.target[i].name;
@@ -16,16 +14,15 @@ const submitHandler = async (e) => {
     if (fieldName) formData[fieldName] = fieldValue;
   }
 
-  const { data, error } = await supabase.from("courses").insert([formData]);
+  const { data, error } = await supabase.from("lessons").insert([formData]);
   if (!error) {
     for (let i = 0; i < e.target.length; i++) {
       const fieldValue = e.target[i].value;
       if (fieldValue) e.target[i].value = "";
     }
     button.disabled = false;
-    store.lessons[data[0].id] = new Subject<any>(null);
-    store.courses.nextPush(data[0])
-    alert("Course created successfully");
+    store.lessons[id].nextPush(data[0])
+    alert("Lesson created successfully");
   } else alert(error?.message);
 };
 

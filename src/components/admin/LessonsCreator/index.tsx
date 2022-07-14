@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import CoursesManagementForm from "../../../teleporthq/components/courses-management-form";
 import submitHandler from "./submitHandler";
 import OpenModalButton from "./../../OpenModalButton";
+import LessonsManagementForm from "./../../../teleporthq/components/lessons-management-form"
 
-const CoursesCreator = () => {
+const LessonsCreator = ({id}) => {
   return (
     <OpenModalButton
       mode={"add"}
       modalContent={() => (
-        <CoursesManagementForm submitHandler={(e) => submitHandler(e)} />
+        <LessonsManagementForm submitHandler={(e) => submitHandler(e, id)}/>
       )}
     >
-      Add Course
+      Add Lesson
     </OpenModalButton>
   );
 };
 
-export default CoursesCreator;
+export default LessonsCreator;

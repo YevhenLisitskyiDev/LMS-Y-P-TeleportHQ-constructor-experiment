@@ -19,13 +19,12 @@ const Admin = (props) => {
       <GetUsersbutton></GetUsersbutton>
       <div className="admin-container2">
         <div className="admin-container3">
-          <h1 className="admin-add-new-course">Add new course</h1>
+          <h1 className="admin-add-new-course">
+            <span>Resent courses</span>
+          </h1>
           <CoursesCreaationTool></CoursesCreaationTool>
         </div>
-        <div className="admin-container4">
-          <h2 className="admin-manage-your-courses">Manage your courses</h2>
-          <CoursesManagementTool></CoursesManagementTool>
-        </div>
+        <CoursesManagementTool></CoursesManagementTool>
       </div>
     </div>
   )

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { XButton, AddSomethingButton } from "./buttons.tsx";
+import { XButton, ColoredButton } from "./buttons.tsx";
 import store from "../store";
 
-const OpenModalButton = ({ children, modalContent }) => {
+const OpenModalButton = ({ children, modalContent, mode }) => {
   useEffect(() => {
     const escFunction = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -31,9 +31,9 @@ const OpenModalButton = ({ children, modalContent }) => {
   );
 
   return (
-    <AddSomethingButton onClick={toggleModalWindow}>
+    <ColoredButton mode={mode} onClick={toggleModalWindow}>
       {children}
-    </AddSomethingButton>
+    </ColoredButton>
   );
 };
 

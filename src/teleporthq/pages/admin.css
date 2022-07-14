@@ -19,31 +19,23 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: center;
   padding-left: var(--dl-space-space-sixunits);
   padding-right: var(--dl-space-space-sixunits);
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
 }
 .admin-container3 {
   flex: 0 0 auto;
-  width: auto;
+  width: 100%;
   height: auto;
   display: flex;
-  align-items: flex-start;
-  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--dl-space-space-twounits);
+  justify-content: space-between;
 }
 .admin-add-new-course {
-  margin-bottom: var(--dl-space-space-halfunit);
-}
-.admin-container4 {
-  flex: 0 0 auto;
-  width: auto;
-  height: auto;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-}
-.admin-manage-your-courses {
-  margin-bottom: var(--dl-space-space-unit);
+  margin-top: 0px;
+  margin-right: var(--dl-space-space-threeunits);
+  margin-bottom: 0px;
 }
