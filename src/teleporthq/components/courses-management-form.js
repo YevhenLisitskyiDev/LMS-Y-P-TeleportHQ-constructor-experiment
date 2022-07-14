@@ -15,19 +15,21 @@ const CoursesManagementForm = (props) => {
           type="text"
           id="coursename"
           name="name"
-          required
           placeholder={props.courseNamePlaceholder}
+          onClick={props.courseNameClickHandler}
           className="courses-management-form-textinput input"
         />
         <textarea
           name="description"
           placeholder={props.courseDescriptionPlaceholder}
+          onClick={props.courseDescriptionClickHandler}
           className="courses-management-form-textarea textarea"
         ></textarea>
         <input
           type="text"
           name="author_name"
           placeholder={props.authorNamePlaceholder}
+          onClick={props.courseAuthorClickHandler}
           className="courses-management-form-textinput1 input"
         />
         <button type="submit" className="courses-management-form-button button">
@@ -44,6 +46,9 @@ CoursesManagementForm.defaultProps = {
   submitButtonText: 'Submit',
   courseNamePlaceholder: 'Course name',
   courseDescriptionPlaceholder: 'Course description',
+  courseNameClickHandler: () => {},
+  courseDescriptionClickHandler: () => {},
+  courseAuthorClickHandler: () => {},
 }
 
 CoursesManagementForm.propTypes = {
@@ -52,6 +57,9 @@ CoursesManagementForm.propTypes = {
   submitButtonText: PropTypes.string,
   courseNamePlaceholder: PropTypes.string,
   courseDescriptionPlaceholder: PropTypes.string,
+  courseNameClickHandler: PropTypes.func,
+  courseDescriptionClickHandler: PropTypes.func,
+  courseAuthorClickHandler: PropTypes.func,
 }
 
 export default CoursesManagementForm

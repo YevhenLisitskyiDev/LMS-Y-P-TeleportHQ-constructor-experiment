@@ -14,37 +14,23 @@ const LessonsManagementForm = (props) => {
         <input
           type="text"
           name="name"
-          required
           placeholder={props.lessonNamePlaceholder}
+          onClick={props.lessonNameClickHandler}
           className="lessons-management-form-input input"
         />
         <textarea
           name="description"
           placeholder={props.lessonDescriptionPlaceholder}
+          onClick={props.lessonDescriptionClickHandler}
           className="lessons-management-form-textarea textarea"
         ></textarea>
         <input
           type="text"
           name="video_url"
-          required
           placeholder={props.videoUrlPlaceholder}
+          onClick={props.lessonVideoUrlClickHandler}
           className="lessons-management-form-textinput input"
         />
-        <label
-          htmlFor="video_hosting_type"
-          className="lessons-management-form-label"
-        >
-          {props.videoHostingTypeSelectLabel}
-        </label>
-        <select
-          id="video_hosting_type"
-          name="video_hosting_type"
-          className="lessons-management-form-select"
-        >
-          <option value="vimeo">Vimeo</option>
-          <option value="youtube">YouToube</option>
-          <option value="self_hosted">Self Hosted</option>
-        </select>
         <button type="submit" className="lessons-management-form-button button">
           {props.buttonText}
         </button>
@@ -54,18 +40,22 @@ const LessonsManagementForm = (props) => {
 }
 
 LessonsManagementForm.defaultProps = {
+  lessonVideoUrlClickHandler: () => {},
+  lessonNameClickHandler: () => {},
   lessonNamePlaceholder: 'Lesson name',
+  lessonDescriptionClickHandler: () => {},
   videoUrlPlaceholder: 'Video url',
-  videoHostingTypeSelectLabel: 'Video Hosting Type',
   lessonDescriptionPlaceholder: 'Lesson description',
   buttonText: 'Submit',
   submitHandler: () => {},
 }
 
 LessonsManagementForm.propTypes = {
+  lessonVideoUrlClickHandler: PropTypes.func,
+  lessonNameClickHandler: PropTypes.func,
   lessonNamePlaceholder: PropTypes.string,
+  lessonDescriptionClickHandler: PropTypes.func,
   videoUrlPlaceholder: PropTypes.string,
-  videoHostingTypeSelectLabel: PropTypes.string,
   lessonDescriptionPlaceholder: PropTypes.string,
   buttonText: PropTypes.string,
   submitHandler: PropTypes.func,
