@@ -23,6 +23,7 @@ const submitHandler = async (e, id) => {
     button.disabled = false;
     store.lessons[id].nextPush(data[0])
     alert("Lesson created successfully");
+    store.modal.isOpen.toggle()
   } else alert(error?.message);
 };
 

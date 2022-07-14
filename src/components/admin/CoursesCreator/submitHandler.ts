@@ -26,6 +26,7 @@ const submitHandler = async (e) => {
     store.lessons[data[0].id] = new Subject<any>(null);
     store.courses.nextPush(data[0])
     alert("Course created successfully");
+    store.modal.isOpen.toggle()
   } else alert(error?.message);
 };
 

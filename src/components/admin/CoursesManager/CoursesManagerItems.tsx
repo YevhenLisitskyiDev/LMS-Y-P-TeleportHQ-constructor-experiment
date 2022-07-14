@@ -1,11 +1,11 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import styled from "styled-components";
-import { deleteCourseHandler } from "./UDHandlers.ts";
+import { deleteCourseHandler, updateCourseHandler } from "./UDHandlers.ts";
 import { EditAndDeleteButtonsBundle } from "../../../components/buttons";
-import OpenModalButton from "./../../OpenModalButton.tsx";
 import ToggleListItem from "../../ToggleListItem";
 import LessonsCreator from "./../LessonsCreator/index";
 import LessonsManager from "./../LessonsManager/";
+import CoursesManagementForm from "./../../../teleporthq/components/courses-management-form";
 
 export const CourseManagerWrapper = styled.div`
 width: 100%`;
@@ -33,6 +33,19 @@ export const CousreTitleLayout = ({ data: course }) => {
     <CousreTitleLayoutWrapper>
       {course.name} - {course.description}
       <EditAndDeleteButtonsBundle
+        editContent={() => (
+          <CoursesManagementForm
+            courseNamePlaceholder={course.name}
+            courseNameClickHandler={(e) => (e.target.value = course.name)}
+            courseDescriptionPlaceholder={course.description}
+            courseDescriptionClickHandler={(e) =>
+              (e.target.value = course.description)
+            }
+            authorNamePlaceholder={course.author_name}
+            courseAuthorClickHandler={course.author_name}
+            submitHandler={(e) => updateCourseHandler(e, course.id)}
+          />
+        )}
         deleteHandler={() => deleteCourseHandler(course.id)}
       />
     </CousreTitleLayoutWrapper>

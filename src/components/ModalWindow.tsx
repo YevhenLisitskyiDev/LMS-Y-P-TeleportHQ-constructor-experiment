@@ -65,7 +65,7 @@ const ModalWindow = () => {
         isOpen={isOpen}>
         <ContentContainer>
           <XButton onClick={toggleModalWindow}>X</XButton>
-         {modalContent}
+         {isOpen ? modalContent : ""}
         </ContentContainer>
       </ModalWindowWrapper>
     </>
