@@ -1,20 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { XButton } from "./buttons.tsx";
+import { XButton, AddSomethingButton } from "./buttons.tsx";
 import store from "../store";
-
-// create add course button with styled component
-const AddCourseButton = styled.button`
-  background-color: #00bcd4;
-  color: #fff;
-  font-size: 1.2rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.3rem;
-  cursor: pointer;
-  &:hover {
-    background-color: #00acc1;
-  }
-`;
 
 const OpenModalButton = ({ children, modalContent }) => {
   useEffect(() => {
@@ -44,7 +31,9 @@ const OpenModalButton = ({ children, modalContent }) => {
   );
 
   return (
-    <AddCourseButton onClick={toggleModalWindow}>{children}</AddCourseButton>
+    <AddSomethingButton onClick={toggleModalWindow}>
+      {children}
+    </AddSomethingButton>
   );
 };
 

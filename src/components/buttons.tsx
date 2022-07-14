@@ -20,3 +20,24 @@ export const XButton = styled.button`
     color: #fff;
   }
 `;
+
+// create add course button with styled component
+export const AddSomethingButton = styled.button<{ mode?: "edit" | "add" }>`
+  background-color: ${({ mode }) => {
+    if (mode === "edit") {
+      return "#00acc1";
+    } else if (mode === "add") {
+      return "#00acc1";
+    } else {
+      return "#4caf50";
+    }
+  }};
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  &:hover {
+    background-color: #00acc1;
+  }
+`;
