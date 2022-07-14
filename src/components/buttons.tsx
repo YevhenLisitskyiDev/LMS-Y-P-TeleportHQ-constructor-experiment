@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import OpenModalButton from "./OpenModalButton";
 
 // create x closing button for modal window  with styled component
 
@@ -56,15 +57,25 @@ max-width: 200px;
     top: unset;
     right: 0;
   }
-`
+`;
 
 export const EditAndDeleteButtonsBundle = ({
   editHandler = () => {},
   deleteHandler = () => {},
+  editContent = null,
 }) => {
+  console.log(editContent);
   return (
     <EditAndDeleteButtonsBundleWrapper>
-      <ColoredButton mode={"edit"}>Edit</ColoredButton>
+      {editContent ? (
+        <OpenModalButton modalContent={editContent} mode={"edit"}>
+          Edit
+        </OpenModalButton>
+      ) : (
+        <ColoredButton mode={"edit"} onClick={editHandler}>
+          Edit
+        </ColoredButton>
+      )}
       <XButton onClick={deleteHandler}>Delete</XButton>
     </EditAndDeleteButtonsBundleWrapper>
   );
