@@ -25,13 +25,17 @@ export const XButton = styled.button`
 `;
 
 // create add course button with styled component
-export const ColoredButton = styled.button<{ mode?: "edit" | "add" }>`
+export const ColoredButton = styled.button<{ mode?: "edit" | "add" | "delete" }>`
   background-color: ${({ mode }) => {
     if (mode === "edit") {
       return "#ffc107";
     } else if (mode === "add") {
       return "#4caf50";
-    } else {
+    } else if (mode === "delete") {
+      return "#f44336";
+    } 
+
+    else {
       return "#00acc1";
     }
   }};
@@ -48,7 +52,7 @@ export const ColoredButton = styled.button<{ mode?: "edit" | "add" }>`
 `;
 
 const EditAndDeleteButtonsBundleWrapper = styled.div`
-max-width: 200px;
+  max-width: 200px;
 
   & button {
     margin-left: 20px;
@@ -63,6 +67,7 @@ export const EditAndDeleteButtonsBundle = ({
   editHandler = () => {},
   deleteHandler = () => {},
   editContent = null,
+  deleteContent = null,
 }) => {
   console.log(editContent);
   return (
@@ -76,7 +81,15 @@ export const EditAndDeleteButtonsBundle = ({
           Edit
         </ColoredButton>
       )}
-      <XButton onClick={deleteHandler}>Delete</XButton>
+
+      {deleteContent ? (
+        <OpenModalButton modalContent={deleteContent} mode={"delete"}>
+          Delete
+        </OpenModalButton>
+      ) : (
+        <XButton onClick={deleteHandler}>Delete</XButton>
+      )}
+      
     </EditAndDeleteButtonsBundleWrapper>
   );
 };
