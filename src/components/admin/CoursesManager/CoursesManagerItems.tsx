@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { deleteCourseHandler } from "./UDHandlers.ts";
 import { XButton } from "../../../components/buttons";
@@ -22,6 +22,8 @@ const CousreTitleLayoutWrapper = styled.div`
 `;
 
 export const CousreTitleLayout = ({ course }) => {
+  console.log(course);
+
   return (
     <CousreTitleLayoutWrapper>
       {course.name} - {course.description}
@@ -29,7 +31,8 @@ export const CousreTitleLayout = ({ course }) => {
         onClick={(e) => {
           e.preventDefault();
           deleteCourseHandler(course.id);
-        }}>
+        }}
+      >
         Delete
       </XButton>
     </CousreTitleLayoutWrapper>
@@ -41,15 +44,16 @@ const CourseTitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 `;
 
-export const CousreContentLayout = ({ data: course }) => {
-  return (
-    <CousreTitleLayoutWrapper>
-      {course.name} - {course.description}
-    </CousreTitleLayoutWrapper>
-  );
-};
+// export const CousreContentLayout = ({ data: course }) => {
+//   return (
+//     <CousreTitleLayoutWrapper>
+//       {course.name} - {course.description}
+//     </CousreTitleLayoutWrapper>
+//   );
+// };
 
 const CourseItemWrapper = styled.div`
   width: 100%;
@@ -57,8 +61,8 @@ const CourseItemWrapper = styled.div`
 `;
 
 // Create memoized component to prevent re-rendering with id prop and test console.log(id)
-export const CourseContentMemo = React.memo(({ id }) => {
-  console.log("I'm rendering");
+export const CourseContentMemo = React.memo(({ id, loadItemsTrigger }) => {
+
   return (
     <div>
       <h1>{id}</h1>
@@ -68,9 +72,12 @@ export const CourseContentMemo = React.memo(({ id }) => {
 
 export const CourseItem = ({ data: course }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [loadItemsTrigger, setLoadItemsTrigger] = useState(false);
+
 
   // Make toggle is open function with useCallback
   const toggleIsOpen = useCallback(() => {
+    if (!loadItemsTrigger) setLoadItemsTrigger(true)
     setIsOpen(!isOpen);
   }, [isOpen]);
 
@@ -82,7 +89,7 @@ export const CourseItem = ({ data: course }) => {
       </CourseTitleWrapper>
 
       <Curtain isOpen={isOpen}>
-        <CourseContentMemo />
+        <CourseContentMemo id={course.id} loadItemsTrigger={loadItemsTrigger} />
       </Curtain>
     </CourseItemWrapper>
   );

@@ -26,9 +26,9 @@ const CoursesManager = () => {
   return (
     <div>
       <h1>Courses</h1>
-      {courses.map((course) => (
-        <CourseItem key={course.id} course={course} />
-      ))}
+      {courses.map((course) => {
+        return <CourseItem key={course.id} data={course} />
+      })}
     </div>
   );
 };
