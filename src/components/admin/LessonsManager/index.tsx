@@ -8,6 +8,9 @@ import { deleteLessonHandler, updateLessonHandler } from "./UDHandlers";
 import LessonsManagementForm from "./../../../teleporthq/components/lessons-management-form";
 
 const LessonsManager = memo(({ id, isSelected }) => {
+  if (!store.lessons[id])
+    return <div style={{ width: "100%" }}>Loading lessons...</div>;
+
   const lessons = store.lessons[id]?.hook();
   const error = store.error.hook();
 

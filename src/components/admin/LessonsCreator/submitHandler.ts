@@ -4,6 +4,7 @@ import config from "../../../config";
 
 const submitHandler = async (e, id) => {
   e.preventDefault();
+  console.log("lesson creation error")
   const button = e.target[e.target.length - 1];
   button.disabled = true;
   const formData = { course_id: id, organization_id: config.ORGANIZATION_ID  };
@@ -20,11 +21,11 @@ const submitHandler = async (e, id) => {
       const fieldValue = e.target[i].value;
       if (fieldValue) e.target[i].value = "";
     }
-    button.disabled = false;
     store.lessons[id].nextPush(data[0])
     alert("Lesson created successfully");
     store.modal.isOpen.toggle()
   } else alert(error?.message);
+  button.disabled = false;
 };
 
 export default submitHandler;

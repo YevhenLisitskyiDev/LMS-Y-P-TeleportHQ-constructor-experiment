@@ -22,12 +22,13 @@ const submitHandler = async (e) => {
       const fieldValue = e.target[i].value;
       if (fieldValue) e.target[i].value = "";
     }
-    button.disabled = false;
     store.lessons[data[0].id] = new Subject<any>(null);
     store.courses.nextPush(data[0])
     alert("Course created successfully");
     store.modal.isOpen.toggle()
   } else alert(error?.message);
+    button.disabled = false;
+
 };
 
 export default submitHandler;
