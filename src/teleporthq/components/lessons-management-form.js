@@ -24,13 +24,16 @@ const LessonsManagementForm = (props) => {
           onClick={props.lessonDescriptionClickHandler}
           className="lessons-management-form-textarea textarea"
         ></textarea>
+        <label htmlFor="video_url">{props.videoUrlLabel}</label>
         <input
           type="text"
+          id="video_url"
           name="video_url"
           placeholder={props.videoUrlPlaceholder}
           onClick={props.lessonVideoUrlClickHandler}
           className="lessons-management-form-textinput input"
         />
+        <p className="lessons-management-form-text1">{props.text}</p>
         <button type="submit" className="lessons-management-form-button button">
           {props.buttonText}
         </button>
@@ -45,9 +48,11 @@ LessonsManagementForm.defaultProps = {
   lessonNamePlaceholder: 'Lesson name',
   lessonDescriptionClickHandler: () => {},
   videoUrlPlaceholder: 'Video url',
+  videoUrlLabel: 'Please enter video url',
   lessonDescriptionPlaceholder: 'Lesson description',
   buttonText: 'Submit',
   submitHandler: () => {},
+  text: 'Or upload your file after lesson creation',
 }
 
 LessonsManagementForm.propTypes = {
@@ -56,9 +61,11 @@ LessonsManagementForm.propTypes = {
   lessonNamePlaceholder: PropTypes.string,
   lessonDescriptionClickHandler: PropTypes.func,
   videoUrlPlaceholder: PropTypes.string,
+  videoUrlLabel: PropTypes.string,
   lessonDescriptionPlaceholder: PropTypes.string,
   buttonText: PropTypes.string,
   submitHandler: PropTypes.func,
+  text: PropTypes.string,
 }
 
 export default LessonsManagementForm

@@ -50,7 +50,7 @@ const App = () => {
         }}>
         {user ? (
           <>
-            <Link to="/home">HOME</Link>&nbsp;|&nbsp;
+            <Link to="/">HOME</Link>&nbsp;|&nbsp;
             {isAdmin ? (
               <>
                 <Link to="/admin">ADMIN</Link>&nbsp;|&nbsp;

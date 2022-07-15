@@ -42,24 +42,24 @@ const CoursesManagementForm = (props) => {
 
 CoursesManagementForm.defaultProps = {
   authorNamePlaceholder: 'Author name',
+  courseNameClickHandler: () => {},
+  courseDescriptionClickHandler: () => {},
+  courseAuthorClickHandler: () => {},
   submitHandler: () => {},
   submitButtonText: 'Submit',
   courseNamePlaceholder: 'Course name',
   courseDescriptionPlaceholder: 'Course description',
-  courseNameClickHandler: () => {},
-  courseDescriptionClickHandler: () => {},
-  courseAuthorClickHandler: () => {},
 }
 
 CoursesManagementForm.propTypes = {
   authorNamePlaceholder: PropTypes.string,
+  courseNameClickHandler: PropTypes.func,
+  courseDescriptionClickHandler: PropTypes.func,
+  courseAuthorClickHandler: PropTypes.func,
   submitHandler: PropTypes.func,
   submitButtonText: PropTypes.string,
   courseNamePlaceholder: PropTypes.string,
   courseDescriptionPlaceholder: PropTypes.string,
-  courseNameClickHandler: PropTypes.func,
-  courseDescriptionClickHandler: PropTypes.func,
-  courseAuthorClickHandler: PropTypes.func,
 }
 
 export default CoursesManagementForm

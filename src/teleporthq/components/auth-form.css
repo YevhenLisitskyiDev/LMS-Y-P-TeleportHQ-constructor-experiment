@@ -8,12 +8,16 @@
   align-self: center;
 }
 .auth-form-textinput {
+  width: 100%;
   margin-bottom: var(--dl-space-space-unit);
 }
 .auth-form-textinput1 {
+  width: 100%;
   margin-bottom: var(--dl-space-space-unit);
 }
 .auth-form-button {
   color: var(--dl-color-gray-white);
+  transition: 0.3s;
   background-color: var(--dl-color-success-700);
 }
+
